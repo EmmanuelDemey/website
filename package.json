@@ -1,0 +1,17 @@
+{
+  "name": "11ty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@mightyplow/eleventy-plugin-cache-buster": "^1.1.3",
+    "clean-css": "^4.2.3",
+    "html-minifier": "^4.0.0"
+  }
+}
