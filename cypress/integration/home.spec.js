@@ -2,7 +2,7 @@
 
 context("Home", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080");
+    cy.visit("http://localhost:5000");
   });
 
   it("should have a title", () => {

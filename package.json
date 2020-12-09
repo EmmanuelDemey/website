@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy",
-    "cypress:open": "start-server-and-test start http://localhost:8080 _cypress:open",
-    "cypress:run": "start-server-and-test start http://localhost:8080 _cypress:run",
+    "build": "eleventy && node script/generate-podcast-rss.js",
+    "start:prod": "npm run build && serve _site",
+    "cypress:open": "start-server-and-test start:prod http://localhost:5000 _cypress:open",
+    "cypress:run": "start-server-and-test start:prod http://localhost:5000 _cypress:run",
     "_cypress:open": "cypress open"
   },
   "keywords": [],
@@ -19,6 +20,7 @@
     "clean-css": "^4.2.3",
     "cypress": "^5.5.0",
     "html-minifier": "^4.0.0",
+    "serve": "^11.3.2",
     "start-server-and-test": "^1.11.5"
   }
 }
