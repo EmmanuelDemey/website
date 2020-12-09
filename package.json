@@ -9,7 +9,8 @@
     "start:prod": "npm run build && serve _site",
     "cypress:open": "start-server-and-test start:prod http://localhost:5000 _cypress:open",
     "cypress:run": "start-server-and-test start:prod http://localhost:5000 _cypress:run",
-    "_cypress:open": "cypress open"
+    "_cypress:open": "cypress open",
+    "_cypress:run": "cypress run"
   },
   "keywords": [],
   "author": "",
