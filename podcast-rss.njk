@@ -1,0 +1,31 @@
+---json
+{
+  "permalink": "podcast.xml",
+  "eleventyExcludeFromCollections": true
+}
+---
+
+<rss version="2.0"
+xmlns:googleplay="http://www.google.com/schemas/play-podcasts/1.0"
+xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+<channel>
+<title>Tech Ethic</title>
+<googleplay:owner>demey.emmanuel@gmail.com</googleplay:owner>
+<googleplay:author>Emmanuel et Fanny DEMEY</googleplay:author>
+<description>blablabla</description>
+<googleplay:image href="https://www.emmanueldemey.dev/images/techetich.png"/>
+<language>FR</language>
+<link>http://...</link>
+{%- for d in collections.podcast -%}
+  <item>
+        <title>{{d.data.title}}</title>
+        <description>{{d.data.description}}</description>
+        <pubDate>{{d.data.publicationDate}}</pubDate>
+        <enclosure url="{{d.data.file}}"
+                   type="{{d.data.fileType}}" length="{{d.data.fileLength}}"/>
+        <itunes:duration>{{d.data.duration}}</itunes:duration>
+      </item>
+{%- endfor -%}
+
+</channel>
+</rss>

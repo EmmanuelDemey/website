@@ -2,12 +2,19 @@ const htmlmin = require("html-minifier");
 const CleanCSS = require("clean-css");
 const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster");
 
+const pluginRss = require("@11ty/eleventy-plugin-rss");
+
+
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(pluginRss);
+
   const cacheBusterOptions = {};
   eleventyConfig.addPlugin(cacheBuster(cacheBusterOptions));
 
   eleventyConfig.setTemplateFormats([
+      "png",
       "md",
+    "rss",
     "njk",
     "png",
     "css", // css is not yet a recognized template extension in Eleventy
