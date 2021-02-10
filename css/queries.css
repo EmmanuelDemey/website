@@ -2,3 +2,54 @@
                			  E DEMEY
                		Media queries
 -------------------------------------------------------------------- */
+
+
+@media screen and (min-width: 900px) {
+    #container {display: flex; position: relative;}
+    #container > header {
+        box-sizing: border-box;
+        flex-basis: 30%;
+        max-width: 250px;
+        margin: 2rem 5%;
+        padding-right: 5%;
+        border-right: 1px solid var(--n-dark);
+    }
+    #wrapper {flex: 1; margin-top: 12rem;}
+    h1 {width: auto;}
+    nav {
+        position: absolute;
+        width: 55%;
+        max-width: 33rem;
+        bottom: auto;
+        top: 4rem;
+        left: auto;
+        right: 5%;
+        background-color: var(--body-bg);
+        box-shadow: none;
+    }
+    nav ul {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        background-color: rgba(255,255,255,0);
+        margin: 0;
+    }
+    nav a {display: block;}
+
+    div.about {margin: 4rem 0 2rem;}
+    article.h-entry div.p-summary {
+        margin: 4rem 10% 5rem 5%;
+    }
+
+    footer p {text-align: left; margin-left: 5%;}
+}
+
+@media screen and (min-width: 1440px) {
+    #container > header {margin-left: 0;}
+    main {margin-right: 0;}
+    nav {right: 0;}
+    nav li {font-size: 0.95em;}
+    nav a {padding: 0.5em 1em;}
+
+    blockquote {margin: 4rem;}
+}
