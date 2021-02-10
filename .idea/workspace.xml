@@ -2,14 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0540432e-861e-4dd1-a6d7-dc6aaee005eb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/from-scratch/2021-01-01-demo.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/podcast-rss.njk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/podcast/2021-01-01-demo.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eleventy.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eleventy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/layout.njk" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.njk" beforeDir="false" afterPath="$PROJECT_DIR$/index.njk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/script/generate-podcast-rss.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +33,9 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -48,7 +48,12 @@
       <workItem from="1607888804360" duration="303000" />
       <workItem from="1608402473116" duration="190000" />
       <workItem from="1608402741488" duration="1262000" />
-      <workItem from="1609247776061" duration="2252000" />
+      <workItem from="1609247776061" duration="2932000" />
+      <workItem from="1609256164793" duration="288000" />
+      <workItem from="1609330356870" duration="139000" />
+      <workItem from="1609331041384" duration="117000" />
+      <workItem from="1609430861085" duration="588000" />
+      <workItem from="1612943948728" duration="286000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add meta tag">
       <created>1607888995035</created>

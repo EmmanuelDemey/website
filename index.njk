@@ -1,22 +1,66 @@
 ---
-layout: layout.njk
+layout: layout.html
+base: ./
+category: home
 title: Emmanuel Demey
-description: Emmanuel Demey - Consultant Web, Elasticsearch et GreenIT
+permalink: index.html
 ---
-<ul>
-{%- for post in collections.post -%}
-  <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-{%- endfor -%}
-</ul>
 
-<ul>
-{%- for post in collections.fromscratch -%}
-  <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-{%- endfor -%}
-</ul>
+<article class="h-entry">
+  <header>
+    <h2 class="p-name">Titre article</h2>
+    <p class="dt-published">
+      <time datetime="15-02-2021">15 Février 2021</time>
+    </p>
+  </header>
 
-<ul>
-{%- for post in collections.podcast -%}
-  <li><a href="{{ post.url }}">{{ post.data.title }}</a></li>
-{%- endfor -%}
-</ul>
+  <div class="p-summary">
+    <p>Whatever else is the context for that content, including properties for when it was
+    published and/or updated</p>
+  </div>
+
+  <div class="e-content">
+    <p>The purpose of an entry is to place it around both the explicitly written content
+      (in the content property or in other specific properties for non-textual content or responses)
+      and whatever else is the context for that content, including properties for when it was
+      published and/or updated, who created it, tags or categorization, and links to what the
+      content is a response to
+      (perhaps with a quoted excerpt) and/or links to syndicated copies. </p>
+    <p>The purpose of an entry is to place it around both the explicitly written content
+      and whatever else is the context for that content, including properties
+      (perhaps with a quoted excerpt) and/or links to syndicated copies. </p>
+
+    <h3>Sous-titre</h3>
+    <p>The purpose of an entry is to place it around both the explicitly written content
+      (in the content property or in other specific properties for non-textual content or responses)
+      and whatever else is the context for that content, including properties for when it was
+      published and/or updated, who created it, tags or categorization, and links to what the
+      content is a response to
+      (perhaps with a quoted excerpt) and/or links to syndicated copies. </p>
+    <p>The purpose of an entry is to place it around both the explicitly written content
+      and whatever else is the context for that content, including properties
+      (perhaps with a quoted excerpt) and/or links to syndicated copies. </p>
+
+    <pre>
+exemple code
+    </pre>
+
+    <h4>Sous-sous-titre</h4>
+    <p>The purpose of an entry is to place it around both the explicitly written content
+      (in the content property or in other specific properties for non-textual content or responses)
+      and whatever else is the context for that content, including properties for when it was
+      published and/or updated, who created it, tags or categorization, and links to what the
+      content is a response to
+      (perhaps with a quoted excerpt) and/or links to syndicated copies. </p>
+
+    <blockquote>
+      <p>Blablan  sùdùsd ùsjdf ùlksjd fùlksjdlfkjsldf</p>
+      <cite>&mdash; Manu</cite>
+    </blockquote>
+
+    <p>The purpose of an entry is to place it around both the explicitly written content
+      and whatever else is the context for that content, including properties
+      (perhaps with a quoted excerpt) and/or links to syndicated copies. </p>
+  </div>
+
+</article>

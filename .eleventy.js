@@ -14,9 +14,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats([
       "png",
       "md",
+    "html",
     "rss",
     "njk",
-    "png",
+    "svg",
+    "woff",
+    "woff2",
+
     "css", // css is not yet a recognized template extension in Eleventy
   ]);
 

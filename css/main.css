@@ -1,0 +1,349 @@
+/* --------------------------------------------------------------------
+               			  E DEMEY
+               		Main style-sheet
+-------------------------------------------------------------------- */
+@import 'vars.css';
+
+
+/* ------------------------------ RESET ---------------------------- */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, big, cite, code,
+del, dfn, em, form, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i,dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+html {overflow-y: scroll; scroll-behavior: smooth;}
+
+header, footer, main, nav, aside, article, section, figure, figcaption {
+  display: block;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+
+/* ------------------------------ DEFAULTS ---------------------------- */
+@font-face {
+    font-family: 'quicksandbold';
+    src: url('quicksand-bold-webfont.woff2') format('woff2'),
+         url('quicksand-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'quicksandlight';
+    src: url('quicksand-light-webfont.woff2') format('woff2'),
+         url('quicksand-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'quicksandregular';
+    src: url('quicksand-regular-webfont.woff2') format('woff2'),
+         url('quicksand-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+	position: relative;
+	font: 100%/1.2 var(--stack);
+	color: var(--body-text);
+	background-color: var(--body-bg);
+}
+
+
+h2, h3, h4, h5 {
+	font-family: var(--stack-head);
+	font-weight: normal;
+}
+
+h2 {
+	font-size: calc(1.3em + 1.5vw);
+	text-transform: lowercase;
+}
+h3 {font-size: 1.1em;}
+h4 {font: 0.9em var(--stack-b);}
+
+p, li, dt, dd, h5, th, td {font-size: 0.9em;}
+li li, li p, li dt, li dd {font-size: 100%;}
+
+a {color: var(--body-text);}
+a:visited {opacity: 0.8;}
+
+strong {
+	font-family: var(--stack-b);
+	font-weight: normal;
+}
+em {
+	font-family: var(--stack-i);
+	font-style: normal;
+}
+
+img {max-width: 100%; border: none;}
+
+button {
+	font: 100%/1 var(--stack-head);
+	color: var(--text-inv);
+	background-color: var(--secondary);
+	padding: 0.5em 1em;
+	border: none;
+	cursor: pointer;
+}
+button:hover {background-color: var(--highc-color);}
+button[disabled] {
+	filter: grayscale(100%) opacity(40%);
+	cursor: initial;
+}
+
+blockquote {
+	position: relative;
+	max-width: 30em;
+	margin: 2rem 2rem 3rem 3rem;
+}
+	blockquote p {
+		font: 1em/1.35 var(--stack-b);
+		color: var(--link-color);
+		background-color: var(--body-bg);
+	}
+	blockquote::before, blockquote::after {
+		display: block;
+		position: absolute;
+		width: 0.5em;
+		height: 0.5em;
+		font: 72px var(--stack-head);
+		color: rgba(0,0,0,0); /*IE*/
+		color: var(--hot-color);
+	}
+	blockquote::before {
+		content: "\0201C";
+		top: -0.25em;
+		left: -0.5em;
+	}
+	blockquote::after {
+		content: "\0201D";
+		bottom: -0.3em;
+		right: 0;
+	}
+
+
+pre {
+  overflow: auto;
+  max-width: 60em;
+  font-size: 1.2em;
+  line-height: 1.2;
+  color: var(--n-s-dark);
+  background: var(--n-light);
+  padding: 1em 1.5em;
+  margin: 2em 0;
+  opacity: .7;
+}
+
+/* ------------------------------ PAGE STRUCTURE ---------------------------- */
+
+#container {
+	max-width: 1440px;
+	padding-bottom: 4rem;
+	margin: 0 auto;
+	border-top: 10px solid var(--n-dark);
+}
+
+main {
+	margin: 0 5% 1rem;
+}
+
+footer {margin: 2rem 0;}
+	footer p {
+		font-size: 0.7em;
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+/* --- HEADER --- */
+
+#container > header {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	margin: 0 5% 1rem;
+}
+
+#container > header::after {
+	display: block;
+	content: "";
+	width: 100%;
+	height: 1px;
+	background-image: linear-gradient(90deg, var(--body-bg), #333 42%, var(--body-bg));
+}
+
+h1 {
+	width: 45%;
+	max-width: 250px;
+	font: normal 1.2em var(--stack);
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0.7rem 0 1rem;
+}
+	h1 img {filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.5));}
+
+div.about {
+	text-align: left;
+	margin: 0 5% 2rem 0;
+}
+	div.about p {
+		line-height: 1.52;
+	}
+
+
+/* -------------------------- NAVIGATION ----------------------------- */
+
+/* ----------------- SKIP LINKS ------------------ */
+
+.skip {display: inline;}
+
+	.skip a {
+		position: absolute;
+		overflow: hidden;
+		left: -10000px;
+		top: auto;
+		width: 1px;
+		height: 1px;
+	}
+	.skip a:focus {position: static; width: auto; height: auto;}
+
+nav {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	background-color: var(--n-dark);
+	padding: 1rem 0;
+	box-shadow: 0 -3px 12px 7px rgba(0,0,0,0.3);
+	z-index: 10;
+}
+
+nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+	justify-content: space-between;
+	color: var(--text-inv);
+	background-color: var(--n-dark);
+	margin: 0 5%;
+}
+
+nav li {
+	font-size: 0.8em;
+	text-transform: lowercase;
+}
+
+nav a {
+	text-decoration: none;
+	color: var(--text-inv);
+	background-color: var(--n-dark);
+	padding: 0.5em 0.3em;
+}
+
+nav a[aria-current], nav a:hover, nav a:focus {
+	color: var(--n-dark);
+	background-color: var(--hot-color);
+}
+
+/* ----------------- ARTICLES ------------------------ */
+
+.e-content {
+	max-width: 45em;
+}
+.e-content  > p + p, .e-content  > li + li {margin-top: 0.8em;}
+
+article.h-entry header {margin-bottom: 2rem;}
+article.h-entry h2 {margin-bottom: 0;}
+article.h-entry p.dt-published {font-size: 80%;}
+
+article.h-entry div.p-summary {
+	max-width: 25em;
+	padding-left: 1rem;
+	margin: 0 10% 2rem 5%;
+	border-left: 4px solid var(--hot-color);
+}
+
+	article.h-entry div.p-summary p, article.h-entry h3 {
+		font: calc(0.9em + 0.7vw) var(--stack-b);
+	}
+
+article.h-entry h3, article.h-entry h4 {
+	margin-top: 1.5em;
+}
+
+article.h-entry p, article.h-entry li, article.h-entry h4 {
+	font-size: calc(0.8em + 0.35vw);
+	line-height: 1.52;
+}
+
+article.h-entry ul {
+	margin: 1rem;
+}
+
+
+/* ------------------------ MEDIA QUERIES ---------------------------- */
+
+@media screen and (min-width: 900px) {
+	#container {display: flex; position: relative;}
+	#container > header {
+		box-sizing: border-box;
+		flex-basis: 30%;
+		max-width: 250px;
+		margin: 2rem 5%;
+		padding-right: 5%;
+		border-right: 1px solid var(--n-dark);
+	}
+	#wrapper {flex: 1; margin-top: 12rem;}
+	h1 {width: auto;}
+	nav {
+		position: absolute;
+		width: 55%;
+		max-width: 33rem;
+		bottom: auto;
+		top: 4rem;
+		left: auto;
+		right: 5%;
+		background-color: var(--body-bg);
+		box-shadow: none;
+	}
+	nav ul {
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: end;
+		background-color: rgba(255,255,255,0);
+		margin: 0;
+	}
+	nav a {display: block;}
+
+	div.about {margin: 4rem 0 2rem;}
+	article.h-entry div.p-summary {
+    margin: 4rem 10% 5rem 5%;
+	}
+
+	footer p {text-align: left; margin-left: 5%;}
+}
+
+@media screen and (min-width: 1440px) {
+	#container > header {margin-left: 0;}
+	main {margin-right: 0;}
+	nav {right: 0;}
+	nav li {font-size: 0.95em;}
+	nav a {padding: 0.5em 1em;}
+
+	blockquote {margin: 4rem;}
+}
