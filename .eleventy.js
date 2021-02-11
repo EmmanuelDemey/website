@@ -40,4 +40,8 @@ module.exports = function (eleventyConfig) {
 
     return content;
   });
+
+  eleventyConfig.addLiquidShortcode("year", function() {
+    return new Date().getFullYear();
+  });
 };
