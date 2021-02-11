@@ -37,15 +37,49 @@
     nav a {display: block;}
 
     div.about {margin: 4rem 0 2rem;}
-    article.h-entry div.p-summary {
-        margin: 4rem 10% 5rem 5%;
-    }
+    div.p-summary {margin: 4rem 10% 5rem 5%;}
 
     footer p {text-align: left; margin-left: 5%;}
+
+    div.list-of-events h3 {font-size: 1.7em; margin-bottom: 2.5rem;}
+    div.event-entry {
+      display: grid;
+      grid-template-columns: 0.5fr 2fr;
+      grid-template-rows: auto 2fr;
+      gap: 0 5%;
+    }
+    div.event-entry p.picture {
+      display: block;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+  div.list-of-articles article.h-entry {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    grid-template-rows: auto 1fr;
+  }
+  div.list-of-articles h3 {margin: 0;}
+  div.list-of-articles p.publish-date {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  div.list-of-articles div.p-summary {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    padding-top: 0;
+    margin-top: 0;
+  }
 }
 
 @media screen and (min-width: 1440px) {
-    #container > header {margin-left: 0;}
+    #container > header {margin-left: 1rem;}
     main {margin-right: 0;}
     nav {right: 0;}
     nav li {font-size: 0.95em;}

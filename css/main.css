@@ -70,7 +70,7 @@ h2, h3, h4, h5 {
 }
 
 h2 {
-	font-size: calc(1.3em + 1.5vw);
+	font-size: calc(1.3em + 2vw);
 	text-transform: lowercase;
 }
 h3 {font-size: 1.1em;}
@@ -162,6 +162,7 @@ pre {
 main {
 	margin: 0 5% 1rem;
 }
+	main > h2 {margin-bottom: 4vmax;}
 
 footer {margin: 2rem 0;}
 	footer p {
@@ -176,16 +177,9 @@ footer {margin: 2rem 0;}
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	margin: 0 5% 1rem;
+	margin: 0 5% 2rem;
 }
 
-#container > header::after {
-	display: block;
-	content: "";
-	width: 100%;
-	height: 1px;
-	background-image: linear-gradient(90deg, var(--body-bg), #333 42%, var(--body-bg));
-}
 
 h1 {
 	width: 45%;
@@ -199,7 +193,16 @@ h1 {
 
 div.about {
 	text-align: left;
-	margin: 0 5% 2rem 0;
+	margin: 0 5% 2rem 18vw;
+}
+
+div.about::after {
+	display: block;
+	content: "";
+	width: 100%;
+	height: 1px;
+	background-image: linear-gradient(90deg, var(--body-bg), #333 42%, var(--body-bg));
+	margin-top: 1rem;
 }
 	div.about p {
 		line-height: 1.52;
@@ -228,7 +231,7 @@ nav {
 	bottom: 0;
 	left: 0;
 	background-color: var(--n-dark);
-	padding: 1rem 0;
+	padding: 0.5rem 0;
 	box-shadow: 0 -3px 12px 7px rgba(0,0,0,0.3);
 	z-index: 10;
 }
@@ -244,11 +247,12 @@ nav ul {
 }
 
 nav li {
-	font-size: 0.8em;
+	font-size: 0.95em;
 	text-transform: lowercase;
 }
 
 nav a {
+	display: block;
 	text-decoration: none;
 	color: var(--text-inv);
 	background-color: var(--n-dark);
@@ -271,19 +275,19 @@ article.h-entry header {margin-bottom: 2rem;}
 article.h-entry h2 {margin-bottom: 0;}
 article.h-entry p.dt-published {font-size: 80%;}
 
-article.h-entry div.p-summary {
+div.p-summary {
 	max-width: 25em;
 	padding-left: 1rem;
 	margin: 0 10% 2rem 5%;
 	border-left: 4px solid var(--hot-color);
 }
 
-	article.h-entry div.p-summary p, article.h-entry h3 {
-		font: calc(0.9em + 0.7vw) var(--stack-b);
+	div.p-summary p, article.h-entry h3 {
+		font: calc(0.9em + 0.7vw)/1.52 var(--stack-b);
 	}
 
 article.h-entry h3, article.h-entry h4 {
-	margin-top: 1.5em;
+	margin: 1.5em 0 1em;
 }
 
 article.h-entry p, article.h-entry li, article.h-entry h4 {
@@ -295,3 +299,44 @@ article.h-entry ul {
 	margin: 1rem;
 }
 
+/* Entries */
+
+div.list-of-articles article.h-entry h3 {
+	font-size: calc(1em + 1.3vw);
+	line-height: 1.3;
+	margin-bottom: 0;
+}
+div.list-of-articles div.p-summary {
+	max-width: 45em;
+	padding-top: 1rem;
+	margin-top: 1rem;
+}
+	div.list-of-articles div.p-summary p {
+		font-family: var(--stack);
+	}
+
+/* Events */
+
+div.list-of-events {margin-bottom: 2rem;}
+div.list-of-events header {margin-bottom: 1rem;}
+div.list-of-events h3 {margin-bottom: 1em;}
+
+div.list-of-events h4 {
+	font-size: 0.98em;
+	margin-bottom: 0.25em;
+}
+
+div.list-of-events div.content p {
+	font-size: 0.95em;
+	line-height: 1.52;
+}
+
+div.event-entry {
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+	border-bottom: 1px solid var(--n-dark-medium);
+}
+
+p.picture {
+	display: none;
+}
