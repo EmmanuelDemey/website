@@ -20,12 +20,16 @@ module.exports = function (eleventyConfig) {
     "svg",
     "woff",
     "woff2",
-
-    "css", // css is not yet a recognized template extension in Eleventy
   ]);
 
-  eleventyConfig.addFilter("cssmin", function (code) {
-    return new CleanCSS({}).minify(code).styles;
+  eleventyConfig.addPassthroughCopy("css/*.*");
+
+  eleventyConfig.addTransform("cssmin",function (content, outputPath) {
+    console.log("lo", outputPath)
+    if (outputPath.indexOf(".css") > 0) {
+      return new CleanCSS({}).minify(content).styles;
+    }
+    return content;
   });
 
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
@@ -43,5 +47,10 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addLiquidShortcode("year", function() {
     return new Date().getFullYear();
+  });
+
+  eleventyConfig.addCollection("last", function(collectionApi) {
+    console.log(collectionApi.getFilteredByTag("post"))
+    return [collectionApi.getFilteredByTag("post")[0]]
   });
 };
