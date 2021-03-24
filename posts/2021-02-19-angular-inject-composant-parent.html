@@ -5,8 +5,8 @@ tags: ['blog', 'angular']
 title: Communication entre composants
 permalink: index.html
 abstract: Angular propose de multiples syntaxes pour partager de l'informations entre des composants. Mais connaissez-vous celle-ci ?
-datetime: 19-02-2021
-dateLiteral: 19 Février 2021
+datetime: 24-03-2021
+dateLiteral: 24 Mars 2021
 ---
 
 <article class="h-entry">
@@ -26,8 +26,8 @@ dateLiteral: 19 Février 2021
 
     <div class="e-content">
         <p>Nous avons l'habitude d'utiliser l'injection de dépendances avec Angular afin de pouvoir notamment
-            partager de l'information. Mais saviez-vous qu'il était également possible de récupérer directement un
-            composant parent d'un autre composant Angular ?
+            partager de l'information. Mais saviez-vous qu'il était également possible de récupérer directement le
+            composant parent directement dans la classe TypeScript d'un autre composant ?
         </p>
 
         <h3>Cas d'utilisation</h3>
@@ -41,7 +41,7 @@ dateLiteral: 19 Février 2021
 
         <p>
             Je n'ai absolument rien contre ces deux solutions, mais pour certains cas, cela n'est pas nécessaire. Si deux composants
-            sont par exemple toujours utilisés ensemble pour une même fonctionnalité (le découpage en composants a été
+            sont par exemple toujours utilisés ensemble, pour une même fonctionnalité (le découpage en composants a été
             réalisé juste pour faciliter la lecture et la maintenabilité de notre code), nous pouvons, à tout moment, injecter
             depuis un composant enfant une instance de l'un de ces composants parent (direct ou indirect).
         </p>
@@ -54,15 +54,53 @@ dateLiteral: 19 Février 2021
         le type sera tout simplement celui du ou des composants à injecter. </p>
 
         <p>
-            Si nous avons par exemple un composant <strong>ListItemComponent</strong> dans lequel nous souhaitons injecter le composant parent
-            <strong>ListComponent</strong>, il suffit d'écrire le code suivant :
+            Si nous avons par exemple un composant <strong>TabComponent</strong> dans lequel nous souhaitons injecter le composant parent
+            <strong>TabsComponent</strong>, il suffit d'écrire le code suivant :
         </p>
         <pre>
 @Component({ ...}}
-export class ListItemComponent {
-    constructor(private list: ListComponent) {}
+export class TabComponent {
+    constructor(private list: TabsComponent) {}
 }
         </pre>
+
+        <p>
+            Une fois cette injection réalisée, nous pouvons utiliser les méthodes et variables de l'instance du composant <strong>TabsComponent</strong>. Cette pratique
+            est notamment utilisée dans le composant <strong>Accordion</strong> de la librairie <strong>ng-bootstrap</strong>. En effet, dans la directive <strong>NgPanelToggle</strong>
+            (en charge d'ouvrir et de fermer le contenu affiché), le composant <strong>Accordion</strong> lui-même est injecté afin de pouvoir appeler sa méthode <strong>toggle</strong>
+            quand l'utilisateur clique sur le bouton.
+        </p>
+
+        <pre>
+@Directive({
+  selector: 'button[ngbPanelToggle]',
+  host: {
+    'type': 'button',
+    '[disabled]': 'panel.disabled',
+    '[class.collapsed]': '!panel.isOpen',
+    '[attr.aria-expanded]': 'panel.isOpen',
+    '[attr.aria-controls]': 'panel.id',
+    '(click)': 'accordion.toggle(panel.id)'
+  }
+})
+export class NgbPanelToggle {
+  static ngAcceptInputType_ngbPanelToggle: NgbPanel | '';
+
+  @Input()
+  set ngbPanelToggle(panel: NgbPanel) {
+    if (panel) {
+      this.panel = panel;
+    }
+  }
+
+  constructor(public accordion: NgbAccordion, @Optional() @Host() public panel: NgbPanel) {}
+}
+        </pre>
+        <p>
+            Ceci est mon premier article sur Angular (en fait le tout premier article de ce blog). D'autres articles sont
+            prévus. Donc n'hésitez pas à revenir les lire.
+        </p>
     </div>
+
 
 </article>

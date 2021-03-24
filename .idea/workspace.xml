@@ -4,7 +4,7 @@
     <list default="true" id="0540432e-861e-4dd1-a6d7-dc6aaee005eb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_includes/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/events.njk" beforeDir="false" afterPath="$PROJECT_DIR$/events.njk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/2021-02-19-angular-inject-composant-parent.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2021-02-19-angular-inject-composant-parent.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +55,7 @@
       <workItem from="1612943948728" duration="286000" />
       <workItem from="1613740504546" duration="2871000" />
       <workItem from="1614004262276" duration="10000" />
-      <workItem from="1616583076346" duration="422000" />
+      <workItem from="1616583076346" duration="2129000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add meta tag">
       <created>1607888995035</created>
