@@ -16,23 +16,22 @@
 
 <div id="container">
     <header>
-        <h1><img src="img/ed-logo.svg" alt="Emmanuel Demey" /></h1>
+        <h1><img src="/img/ed-logo.svg" alt="Emmanuel Demey" /></h1>
         <nav id="main-nav">
             <p class="skip"><a href="#wrapper">Navigation principale (Sauter le menu)</a></p>
             <ul>
                 <li><a href="/" {% if category == 'home' %}aria-current="page"{% endif %}>
                     Home</a></li>
-                <li><a href="articles.html" {% if category == 'articles' %}aria-current="page"{% endif %}>
+                <li><a href="/articles.html" {% if category == 'articles' %}aria-current="page"{% endif %}>
                     Articles</a></li>
-                <li><a href="events.html" {% if category == 'events' %}aria-current="page"{% endif %}>
+                <li><a href="/events.html" {% if category == 'events' %}aria-current="page"{% endif %}>
                     Événement</a></li>
             </ul>
         </nav>
         {% if category == 'home' %}
         <div class="about">
-            <p>Emmanuel Demey est développeur, consultant et formateur sur différentes problématiques liées au web.</p>
-            <p>Soucieux de la qualité, de la performance et de l'accessibilité, il anime depuis plusieurs années de
-                nombreuses conférences sur ces sujets.</p>
+            <p>Emmanuel Demey est développeur, consultant et formateur freelance sur différentes problématiques liées au web.</p>
+            <p>Conférencier, organisateur de conférences, podcasteur, auteur du livre Progressive Web App pour ENI.</p>
         </div>
         {% endif %}
     </header>
