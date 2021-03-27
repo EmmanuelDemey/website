@@ -18,12 +18,12 @@ module.exports = function (eleventyConfig) {
     "rss",
     "njk",
     "svg",
-    "js",
     "woff",
     "woff2",
   ]);
 
   eleventyConfig.addPassthroughCopy("css/*.*");
+  eleventyConfig.addPassthroughCopy("sw.js");
 
   eleventyConfig.addTransform("cssmin",function (content, outputPath) {
     console.log("lo", outputPath)
