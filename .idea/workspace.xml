@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0540432e-861e-4dd1-a6d7-dc6aaee005eb" name="Default Changelist" comment="feat: add events and update sitemap">
-      <change beforePath="$PROJECT_DIR$/.eleventy.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eleventy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/posts/2021-02-19-angular-inject-composant-parent.html" beforeDir="false" afterPath="$PROJECT_DIR$/posts/2021-02-19-angular-inject-composant-parent.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
