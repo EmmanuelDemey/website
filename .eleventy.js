@@ -12,12 +12,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(cacheBuster(cacheBusterOptions));
 
   eleventyConfig.setTemplateFormats([
-      "png",
-      "md",
+    "png",
+    "md",
     "html",
     "rss",
     "njk",
     "svg",
+    "js",
     "woff",
     "woff2",
   ]);

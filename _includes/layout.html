@@ -10,11 +10,18 @@
     <link href="{{ base }}css/main.css" rel="stylesheet" media="all" />
     <link href="{{ base }}css/queries.css" rel="stylesheet" media="all" />
     <!-- Here go your scripts -->
+    <script type="text/javascript">
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+        }
+    </script>
+
 </head>
 
 <body>
 
 <div id="container">
+
     <header>
         <h1><img src="/img/ed-logo.svg" alt="Emmanuel Demey" /></h1>
         <nav id="main-nav">
