@@ -207,7 +207,10 @@ div.about::after {
 	div.about p {
 		line-height: 1.52;
 	}
-
+	div.about ul {
+		margin-top: 1em;
+		list-style: none;
+	}
 
 /* -------------------------- NAVIGATION ----------------------------- */
 
