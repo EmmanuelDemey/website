@@ -10,7 +10,9 @@
     "cypress:open": "start-server-and-test start:prod http://localhost:5000 _cypress:open",
     "cypress:run": "start-server-and-test start:prod http://localhost:5000 _cypress:run",
     "_cypress:open": "cypress open",
-    "_cypress:run": "cypress run"
+    "_cypress:run": "cypress run",
+    "a11y": "pa11y-ci --sitemap http://localhost:5000/sitemap.xml --sitemap-find / --sitemap-replace http://localhost:5000/",
+    "pa11y": "start-server-and-test start:prod http://localhost:5000 a11y"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,8 @@
     "clean-css": "^4.2.3",
     "cypress": "^5.5.0",
     "html-minifier": "^4.0.0",
+    "pa11y": "^5.3.1",
+    "pa11y-ci": "^2.4.0",
     "serve": "^11.3.2",
     "start-server-and-test": "^1.11.5"
   },
