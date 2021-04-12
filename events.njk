@@ -4,8 +4,10 @@ base: ./
 category: events
 title: Evénements
 permalink: events.html
+description: Vous trouverez sur cette page tous les événements auquels je participe.
 ---
 
+<script src="/javascript/lite-yt-embed.js"></script>
 <h2>Événements</h2>
 
 <div class="list-of-events">
@@ -31,6 +33,10 @@ permalink: events.html
           <p>
             Podcast d'une heure autour des nouveautés de l'écosystème Web. J'ai présenté la rubrique "La Météo du Web".
           </p>
+          {% set videoTitle = "Les Briques du Web S01-E02" %}
+          {% set videoId = "rI6xUkOnyB0" %}
+          {% include 'youtube.njk' %}
+
       </div>
       <p class="picture"><img src="https://pbs.twimg.com/profile_images/1369565728681168896/-IUwYZgB_400x400.png" alt="" /></p>
     </div>
@@ -52,6 +58,9 @@ permalink: events.html
       <p>
       Depuis, d'autres solutions sont apparues, comme par exemple Mobx. Durant cette conférence, je souhaite vous présenter le tout dernier : Recoil. A travers un live coding et la découverte de ses entrailles, nous allons découvrir les avantages et les inconvénients de ce nouveau projet développé chez Facebook.
         </p>
+        {% set videoTitle = "Recoil, un state management nouvelle génération" %}
+          {% set videoId = "hfcm8pUrzp4" %}
+          {% include 'youtube.njk' %}
     </div>
     <p class="picture"><img src="https://secure.meetupstatic.com/photos/event/6/b/4/8/highres_495087464.jpeg" alt="" /></p>
   </div>
@@ -64,6 +73,9 @@ permalink: events.html
             <p>
               Podcast d'une heure autour des nouveautés de l'écosystème Web. Durant cet épisode, j'ai présenté l'outil de la semaine : <strong>Snowpack</strong>.
             </p>
+            {% set videoTitle = "Les Briques du Web S01-E01" %}
+              {% set videoId = "czAx81Upp_U" %}
+              {% include 'youtube.njk' %}
         </div>
         <p class="picture"><img src="https://pbs.twimg.com/profile_images/1369565728681168896/-IUwYZgB_400x400.png" alt="" /></p>
       </div>

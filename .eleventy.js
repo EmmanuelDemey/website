@@ -23,6 +23,7 @@ module.exports = function (eleventyConfig) {
   ]);
 
   eleventyConfig.addPassthroughCopy("css/*.*");
+  eleventyConfig.addPassthroughCopy("javascript/*.*");
   eleventyConfig.addPassthroughCopy("sw.js");
 
   eleventyConfig.addTransform("cssmin",function (content, outputPath) {
