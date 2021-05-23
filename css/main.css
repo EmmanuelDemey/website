@@ -211,6 +211,9 @@ div.about::after {
 		margin-top: 1em;
 		list-style: none;
 	}
+	div.about li {
+		margin-top: 1em;
+	}
 
 /* -------------------------- NAVIGATION ----------------------------- */
 
