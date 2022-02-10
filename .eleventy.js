@@ -1,6 +1,4 @@
 const htmlmin = require("html-minifier");
-const CleanCSS = require("clean-css");
-const cacheBuster = require("@mightyplow/eleventy-plugin-cache-buster");
 
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
@@ -8,30 +6,29 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
 
-  const cacheBusterOptions = {};
-  eleventyConfig.addPlugin(cacheBuster(cacheBusterOptions));
-
-  eleventyConfig.setTemplateFormats([
-    "png",
-    "md",
-    "html",
-    "rss",
-    "njk",
-    "svg",
-    "woff",
-    "woff2",
-  ]);
-
-  eleventyConfig.addPassthroughCopy("css/*.*");
-  eleventyConfig.addPassthroughCopy("javascript/*.*");
   eleventyConfig.addPassthroughCopy("sw.js");
+  eleventyConfig.addPassthroughCopy("javascript/*.*");
+  eleventyConfig.addPassthroughCopy("img/*.*");
+  eleventyConfig.addPassthroughCopy("images/*.*");
+  eleventyConfig.addPassthroughCopy("css/*.woff");
+  eleventyConfig.addPassthroughCopy("css/*.woff2");
 
-  eleventyConfig.addTransform("cssmin",function (content, outputPath) {
-    console.log("lo", outputPath)
-    if (outputPath.indexOf(".css") > 0) {
-      return new CleanCSS({}).minify(content).styles;
+  eleventyConfig.setTemplateFormats(["md", "html", "rss", "njk"]);
+
+  eleventyConfig.addTemplateFormats("css");
+
+  const CleanCSS = require("clean-css");
+  eleventyConfig.addExtension("css", {
+    outputFileExtension: "css",
+    compile: async (inputContent) => {
+      return async () => {
+        return new Promise(resolve => {
+          new CleanCSS({ inline: ['remote']}).minify(inputContent, (_, data) => {
+            resolve(data.styles)
+          });
+        });
+      };
     }
-    return content;
   });
 
   eleventyConfig.addTransform("htmlmin", function (content, outputPath) {
@@ -52,7 +49,6 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("last", function(collectionApi) {
-    console.log(collectionApi.getFilteredByTag("post"))
     return [collectionApi.getFilteredByTag("post")[0]]
   });
 };

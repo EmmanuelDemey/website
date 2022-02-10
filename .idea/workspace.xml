@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0540432e-861e-4dd1-a6d7-dc6aaee005eb" name="Default Changelist" comment="feat: add youtube player">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+    <list default="true" id="0540432e-861e-4dd1-a6d7-dc6aaee005eb" name="Default Changelist" comment="feat add A11Y checks">
+      <change afterPath="$PROJECT_DIR$/posts/20223-01-01-2022.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eleventy.js" beforeDir="false" afterPath="$PROJECT_DIR$/.eleventy.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress.json" beforeDir="false" afterPath="$PROJECT_DIR$/cypress.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/fixtures/example.json" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/fixtures/example.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/home.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/menu.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/integration/podcast.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/plugins/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/plugins/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/support/commands.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/commands.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cypress/support/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/cypress/support/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -14,6 +23,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="6g2zk37h" />
   </component>
   <component name="ProjectId" id="1lcG80YaoElPONUTWM8HTmJOFyj" />
   <component name="ProjectViewState">
@@ -26,6 +38,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/posts" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -62,7 +75,13 @@
       <workItem from="1617041294575" duration="285000" />
       <workItem from="1617725083089" duration="1896000" />
       <workItem from="1618225243217" duration="370000" />
-      <workItem from="1618252331553" duration="1539000" />
+      <workItem from="1618252331553" duration="2087000" />
+      <workItem from="1620735940840" duration="952000" />
+      <workItem from="1621803210934" duration="726000" />
+      <workItem from="1622725542104" duration="10000" />
+      <workItem from="1640527294819" duration="106000" />
+      <workItem from="1644238101696" duration="671000" />
+      <workItem from="1644501170615" duration="1300000" />
     </task>
     <task id="LOCAL-00001" summary="feat: add meta tag">
       <created>1607888995035</created>
@@ -113,7 +132,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618252894303</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat add A11Y checks">
+      <created>1618253931890</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1618253931890</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: add margin to the left-side list">
+      <created>1621803401448</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1621803401448</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +162,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: add meta tag" />
@@ -138,6 +172,8 @@
     <MESSAGE value="feat: add Cypress test for the main menu" />
     <MESSAGE value="feat: fix errors on layout" />
     <MESSAGE value="feat: add youtube player" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add youtube player" />
+    <MESSAGE value="feat add A11Y checks" />
+    <MESSAGE value="fix: add margin to the left-side list" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: add margin to the left-side list" />
   </component>
 </project>
