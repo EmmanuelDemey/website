@@ -1,0 +1,119 @@
+---
+layout: layout.html
+base: /
+tags: ["blog", "from-scratch"]
+title: From Scratch - NPX
+category: home
+permalink: index.html
+description: Ecrire son propre NPX
+datetime: 22-08-2022
+dateLiteral: 22 Aout 2022
+---
+
+<article class="h-entry">
+  <header>
+    <h2 class="p-name">[From Scratch] NPX</h2>
+    <p class="dt-published">
+      <time datetime="22-08-2022">22 Aout 2022</time>
+    </p>
+  </header>
+
+  <div class="p-summary">
+    <p>
+      Dans ce nouvel article de série “From Scratch”, nous allons décortiquer l'outil NPX.
+    </p>
+  </div>
+
+  <div class="e-content">
+    <p>
+        L'outil <strong>NPX</strong> est un outil en ligne de commande installé automatiquement quand nous installons <strong>Node.js</strong> et <strong>NPM</strong>
+        sur notre machine. Il permet de facilement exécuter des modules NPM sans avoir besoin de les installer manuellement. 
+        Ci-dessous, un exemple permettant d'initier un projet <strong>Angular</strong> grâce au module <strong>@angular/cli</strong>.
+    </p>
+    <pre>
+        <code>
+npx @angular/cli new App
+        </code>
+    </pre>
+    <p>
+        Mais si nous jetons un coup d'oeil au <a target="_blank" rel="noreferrer noopener" href="https://github.com/npm/cli/blob/latest/bin/npx-cli.js">code source</a>, cet outil est un 
+        simple outil de réécriture. En effet, son seul but est de regénérer une commande <strong>npx exec</strong> correspondant à l'action que nous souhaitons 
+        réaliser. Dans cet article, nous allons essayer de comprendre son fonctionnement. 
+    </p>
+
+    <p>
+        En Node.js, pour récupérer les arguments passés à la ligne de commande, 
+        nous devons manipuler le tableau <strong>argv</strong>. Ce tableau contient comme premier 
+        élément l'exécutable utilisé, dans notre cas Node.js, et ensuite en 
+        deuxième place, la commande en elle même : pour nous npx.
+    </p>
+    <p>
+        Comme indiqué précédemment, <strong>npx</strong> est un simple outil de réécriture. Pour faire ce traitement, nous allons tout 
+        simplement modifier ce tableau <strong>argv</strong> afin d'avoir celui souhaité par la commande <strong>npm exec</strong>.
+        Nous allons donc :
+    </p>
+    <ul>
+        <li>Remplacer le deuxième élément de <strong>argv</strong> pour pointer vers le script de la CLI de NPM</li>
+        <li>Insérer la chaîne de caractères <strong>exec</strong> en troisième position.</li>
+    </ul>
+
+    <pre>
+        <code class="language-js">
+#!/usr/bin/env node
+
+process.argv[1] = require.resolve('./npm-cli.js')
+process.argv.splice(2, 0, 'exec')
+
+        </code>
+    </pre>
+    <p>
+        Si nous regardons la documentation de la commande <strong>npm exec</strong>, voici comment elle 
+        doit etre utilisée pour exécuter le même module @angular/cli.
+    </p>
+    <pre>
+        <code>
+npx exec -- @angular/cli new App
+        </code>
+    </pre>
+    <p>
+        Pas énormément de différences. A part le '--'. Nous allons donc l'ajouter à notre tableau. 
+    </p>
+    <pre>
+        <code class="language-js">
+#!/usr/bin/env node
+
+process.argv[1] = require.resolve('./npm-cli.js')
+process.argv.splice(2, 0, 'exec')
+process.argv.splice(i, 0, '--')
+        </code>
+    </pre>
+    <p>
+        Et voilà le tour est joué. Il suffit maintenant de passer cet objet
+        <strong>process</strong> au script NPM afin qu'il soit exécuté. 
+    </p>
+    <pre>
+        <code class="language-js">
+#!/usr/bin/env node
+
+const cli = require('../lib/cli.js')
+
+process.argv[1] = require.resolve('./npm-cli.js')
+process.argv.splice(2, 0, 'exec')
+process.argv.splice(i, 0, '--')
+
+cli(process)
+        </code>
+    </pre>
+    <p>
+        Vous allez me dire, c'est fini ? En effet, le script fait de la transformation sur les options
+        afin qu'elles correspondent à ce qu'attend NPM. Mais, pour mon cas, dans la vie de tous les jours,
+        les quelques lignes précédentes sont suffisantes. 
+    </p>
+    <p>
+        Vous trouverez le code complet de cet outil sur <a target="_blank" rel="noreferrer noopener" href="https://github.com/npm/cli/blob/latest/bin/npx-cli.js">le repository Github de NPM</a>, avec notamment la partie parmettant de faire la 
+        "traduction" des options passées à la ligne de commande.
+    </p>
+   
+</div>
+</div>
+</article>
