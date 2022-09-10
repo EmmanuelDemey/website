@@ -9,12 +9,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("sw.js");
   eleventyConfig.addPassthroughCopy("javascript/*.*");
   eleventyConfig.addPassthroughCopy("img/*.*");
+  eleventyConfig.addPassthroughCopy("slides/*.*");
   eleventyConfig.addPassthroughCopy("images/*.*");
   eleventyConfig.addPassthroughCopy("css/*.woff");
   eleventyConfig.addPassthroughCopy("css/*.woff2");
 
   eleventyConfig.setTemplateFormats(["md", "html", "rss", "njk"]);
 
+  
   eleventyConfig.addTemplateFormats("css");
 
   const CleanCSS = require("clean-css");
