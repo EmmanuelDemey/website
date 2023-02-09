@@ -343,6 +343,10 @@ div.event-entry {
 	border-bottom: 1px solid var(--n-dark-medium);
 }
 
+div.event-entry ol {
+	list-style-position: inside;
+}
+
 p.picture {
 	display: none;
 }
