@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="{{ base }}img/favicon.png" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{ base }}img/favicon.png">
     <title>{{ title }}</title>
     <!-- STYLESHEET -->
-    <link href="{{ base }}css/main.css" rel="stylesheet" media="all" />
-    <link href="{{ base }}css/queries.css" rel="stylesheet" media="all" />
+    <link href="{{ base }}css/main.css" rel="stylesheet" media="all">
+    <link href="{{ base }}css/queries.css" rel="stylesheet" media="all">
 
-    <meta name="title" content="{{ title }}">
+    <meta name="title" content="{{ title }} : Emmanuel Demey">
     <meta name="description" content="{{ description }}">
 
     <!-- Open Graph / Facebook -->
@@ -27,12 +27,11 @@
     <meta property="twitter:description" content="{{ description }}">
     <meta property="twitter:image" content="https://www.emmanueldemey.dev{{ image }}">
 
-    <link rel="stylesheet"
-      href="/css/github.min.css">
-<script src="/javascript/highlight.min.js"></script>
-<script src="/javascript/main.js"></script>
+    <link rel="stylesheet" href="/css/github.min.css">
+    <script src="/javascript/highlight.min.js"></script>
+    <script src="/javascript/main.js"></script>
     <!-- Here go your scripts -->
-    <script type="text/javascript">
+    <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/sw.js')
         }
@@ -56,10 +55,18 @@
                 <li><a href="/formations.html" {% if category == 'formations' %}aria-current="page"{% endif %}>
                     Formations</a></li>
                 <li><a href="/events.html" {% if category == 'events' %}aria-current="page"{% endif %}>
-                    Événement</a></li>
+                    Événements</a></li>
             </ul>
         </nav>
-        <div class="about">
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+    
+    <aside class="about">
+        <h2><img src="/img/ed-logo-min.svg" alt="A propos d'Emmanuel Demey" /></h2>
+        <div class="content">
             <p>Emmanuel Demey est développeur, consultant et formateur freelance sur différentes problématiques liées au web.</p>
             <p>Conférencier, organisateur de conférences, podcasteur, auteur du livre Progressive Web App pour ENI.</p>
             <ul>
@@ -70,19 +77,12 @@
                 <li><a target="_blank" rel="noreferrer noopener" href="https://twitter.com/TechEthicFR?s=20">Tech Ethic</a></li>
             </ul>
         </div>
-    </header>
+    </aside>
 
-    <div id="wrapper">
-        <main>
-            {{ content }}
-        </main>
-
-        <footer>
-            <p class="copyright">&copy; Emmanuel Demey, {% year %}</p>
-        </footer>
-    </div>
+    <footer>
+        <p class="copyright">&copy; Emmanuel Demey, {% year %}</p>
+    </footer>
 </div>
-<p class="go-top"><a href="#container">Top</a></p>
 
 {% if altscript %}
 <script src="{{ base }}js/{{ altscript }}.js"></script>

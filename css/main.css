@@ -23,7 +23,7 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 html {overflow-y: scroll; scroll-behavior: smooth;}
 
 header, footer, main, nav, aside, article, section, figure, figcaption {
-  display: block;
+  	display: block;
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -58,7 +58,7 @@ header, footer, main, nav, aside, article, section, figure, figcaption {
 
 body {
 	position: relative;
-	font: 100%/1.2 var(--stack);
+	font: 100%/1.45 var(--stack);
 	color: var(--body-text);
 	background-color: var(--body-bg);
 }
@@ -70,14 +70,19 @@ h2, h3, h4, h5 {
 }
 
 h2 {
-	font-size: calc(1.3em + 2vw);
+	font-size: calc(1.35em + 2vw);
 	text-transform: lowercase;
 }
-h3 {font-size: 1.1em;}
-h4 {font: 0.9em var(--stack-b);}
+h3 {font-size: calc(1.2em + 1vw);}
+h4 {font: calc(0.95em + 0.35vw) var(--stack-b);}
 
-p, li, dt, dd, h5, th, td {font-size: 0.9em;}
+p, li, dt, dd, h5, th, td {
+	font-size: calc(0.8em + 0.35vw);
+	line-height: 1.58;
+}
 li li, li p, li dt, li dd {font-size: 100%;}
+
+ul, ol {margin: 1rem;}
 
 a {color: var(--body-text);}
 a:visited {opacity: 0.8;}
@@ -183,7 +188,7 @@ footer {margin: 2rem 0;}
 
 h1 {
 	width: 45%;
-	max-width: 250px;
+	max-width: 183px;
 	font: normal 1.2em var(--stack);
 	text-align: center;
 	text-transform: uppercase;
@@ -191,29 +196,40 @@ h1 {
 }
 	h1 img {filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.5));}
 
-div.about {
-	text-align: left;
-	margin: 0 5% 2rem 18vw;
+aside.about {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+	margin: 2rem 5%;
 }
-
-div.about::after {
+aside.about::before, aside.about::after {
 	display: block;
 	content: "";
 	width: 100%;
 	height: 1px;
 	background-image: linear-gradient(90deg, var(--body-bg), #333 42%, var(--body-bg));
-	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
-	div.about p {
-		line-height: 1.52;
+aside.about::after {
+	margin-bottom: 0;
+}
+
+	aside.about h2 {flex: 0 0 50px;}
+	aside.about div.content {flex: 1;}
+
+	aside.about p, aside.about li {
+		font-size: 0.85em;
+		line-height: 1.45;
 	}
-	div.about ul {
-		margin-top: 1em;
-		list-style: none;
+
+	aside.about ul {
+		margin: 1rem;
 	}
-	div.about li {
-		margin-top: 1em;
+	aside.about li + li {
+		margin-top: 0.8em;
 	}
+
+
 
 /* -------------------------- NAVIGATION ----------------------------- */
 
@@ -278,7 +294,13 @@ nav a[aria-current], nav a:hover, nav a:focus {
 .e-content  > p + p, .e-content  > li + li {margin-top: 0.8em;}
 
 article.h-entry header {margin-bottom: 2rem;}
-article.h-entry h2 {margin-bottom: 0;}
+
+article.h-entry h2 {
+	max-width: 14em;
+	line-height: 1.15;
+	margin-bottom: 0;
+}
+
 article.h-entry p.dt-published {font-size: 80%;}
 
 div.p-summary {
@@ -288,68 +310,99 @@ div.p-summary {
 	border-left: 4px solid var(--hot-color);
 }
 
-	div.p-summary p, article.h-entry h3 {
-		font: calc(0.9em + 0.7vw)/1.52 var(--stack-b);
-	}
-
 article.h-entry h3, article.h-entry h4 {
 	margin: 1.5em 0 1em;
 }
 
-article.h-entry p, article.h-entry li, article.h-entry h4 {
-	font-size: calc(0.8em + 0.35vw);
-	line-height: 1.52;
-}
 
 article.h-entry ul {
 	margin: 1rem;
 }
+article.h-entry li + li {margin-top: 0.8em;}
 
 /* Entries */
 
 div.list-of-articles article.h-entry h3 {
-	font-size: calc(1em + 1.3vw);
-	line-height: 1.3;
-	margin-bottom: 0;
+	line-height: 1.2;
+	margin-bottom: 0.25em;
 }
+
+article.h-entry.k-entry h3 {font-size: calc(0.95em + 0.5vw);}
+
 div.list-of-articles div.p-summary {
 	max-width: 45em;
-	padding-top: 1rem;
+	padding: 0.5rem 0 0.5rem 1rem;
 	margin-top: 1rem;
 }
 	div.list-of-articles div.p-summary p {
 		font-family: var(--stack);
 	}
 
+article.h-entry time {
+	text-transform: uppercase;
+}
+
 /* Events */
 
 div.list-of-events {margin-bottom: 2rem;}
-div.list-of-events header {margin-bottom: 1rem;}
-div.list-of-events h3 {margin-bottom: 1em;}
+div.list-of-events header {margin-bottom: 1.5rem;}
+div.list-of-events h3 {
+	font-size: calc(1.3em + 0.5vw);
+	margin-bottom: 1em;
+}
 
 div.list-of-events h4 {
-	font-size: 0.98em;
-	margin-bottom: 0.25em;
+	margin-bottom: 0.5em;
 }
-
-div.list-of-events div.content p {
-	font-size: 0.95em;
-	line-height: 1.52;
-}
-
 div.event-entry {
 	padding-bottom: 1rem;
 	margin-bottom: 1rem;
 	border-bottom: 1px solid var(--n-dark-medium);
+}
+div.event-entry:last-of-type {
+	margin-bottom: 0;
+	border: none;
 }
 
 div.event-entry ol {
 	list-style-position: inside;
 }
 
-p.picture {
+div.event-entry p.picture {
 	display: none;
 }
+
+p.slides {
+	background-repeat: no-repeat;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M13 17v3h5v2H6v-2h5v-3H4a1 1 0 0 1-1-1V4H2V2h20v2h-1v12a1 1 0 0 1-1 1h-7zm-8-2h14V4H5v11zm5-9l5 3.5-5 3.5V6z'/%3E%3C/svg%3E");
+	padding-left: 35px;
+}
+.e-content > p + p.slides {margin: 1.5rem 0 1rem;}
+
+div.list-of-trainings {
+	display: flex;
+	flex-direction: column;
+	gap: calc(1.5rem + 1vw);
+}
+  div.list-of-trainings div.t-entry {
+	flex: 1 1 30%;
+	display: flex;
+	flex-direction: column;
+	padding: 1.5rem;
+	margin: 0;
+	border: 1px solid var(--n-dark-medium);
+	box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+  }
+
+  div.list-of-trainings h3 {margin-bottom: 0.5em;}
+
+  div.list-of-trainings p.picture {
+	order: 1;
+	width: 35%;
+	max-width: 110px;
+  }
+  div.list-of-trainings div.intro {order: 2;}
+  div.list-of-trainings div.content {order: 3;}
 
 lite-youtube {
 	background-color: #000;
@@ -360,6 +413,7 @@ lite-youtube {
 	background-size: cover;
 	cursor: pointer;
 	max-width: 720px;
+	margin: 2rem 0;
 }
 
 /* gradient */
