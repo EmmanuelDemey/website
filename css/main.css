@@ -303,11 +303,16 @@ article.h-entry h2 {
 
 article.h-entry p.dt-published {font-size: 80%;}
 
-div.p-summary {
+div.p-summary, div.page-intro {
 	max-width: 25em;
 	padding-left: 1rem;
 	margin: 0 10% 2rem 5%;
 	border-left: 4px solid var(--hot-color);
+}
+
+div.page-intro {
+	max-width: 35em;
+	margin-bottom: calc(2rem + 0.5vw);
 }
 
 article.h-entry h3, article.h-entry h4 {
