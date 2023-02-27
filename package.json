@@ -29,6 +29,6 @@
     "serve": "^11.3.2"
   },
   "dependencies": {
-    "start-server-and-test": "^1.12.3"
+    "start-server-and-test": "^2.0.0"
   }
 }
