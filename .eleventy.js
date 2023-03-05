@@ -17,8 +17,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats(["md", "html", "rss", "njk"]);
 
   
-  eleventyConfig.addTemplateFormats("css");
-
   const CleanCSS = require("clean-css");
   eleventyConfig.addExtension("css", {
     outputFileExtension: "css",
