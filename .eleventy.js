@@ -6,6 +6,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
 
+  eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("sw.js");
   eleventyConfig.addPassthroughCopy("javascript/*.*");
   eleventyConfig.addPassthroughCopy("img/*.*");
