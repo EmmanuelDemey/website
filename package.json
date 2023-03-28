@@ -23,7 +23,9 @@
     "clean-css": "^5.2.4",
     "cypress": "^7.4.0",
     "cypress-axe": "^0.12.2",
+    "highlight.js": "^11.7.0",
     "html-minifier": "^4.0.0",
+    "jssoup": "0.0.15",
     "pa11y": "^5.3.1",
     "pa11y-ci": "^2.4.0",
     "serve": "^11.3.2"
