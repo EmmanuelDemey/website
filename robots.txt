@@ -1,4 +1,4 @@
 Sitemap: https://www.emmanueldemey.dev/sitemap.xml
 
-User-agent: *
-Disallow:
+UserAgent: GPTBot
+Disallow: /
