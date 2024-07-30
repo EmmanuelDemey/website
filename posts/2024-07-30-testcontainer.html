@@ -122,7 +122,7 @@ public class GraphDBContainer extends GenericContainer<GraphDBContainer> {
 </code></pre>
 
 <p>
-  Nous pouvons désormais utiliser notre classe GraphDBContainer. Toutefois, avant de l'intégrer pleinement, il est essentiel de synchroniser l'URL et le port de notre conteneur avec la configuration de l'application Spring Boot. Si cette étape n'est pas réalisée correctement, notre service CartService risque de se connecter à la mauvaise base de données, ce qui pourrait entraîner des erreurs dans les tests et le fonctionnement de l'application. Pour synchroniser l'URL et le port de notre conteneur avec la configuration de l'application Spring Boot, nous utilisons les DynamicPropertySource de Spring Boot. 
+  Nous pouvons désormais utiliser notre classe GraphDBContainer. Toutefois, avant de l'intégrer pleinement, il est essentiel de synchroniser l'URL et le port de notre conteneur avec la configuration de l'application Spring Boot. Si cette étape n'est pas réalisée correctement, notre service FriendsService risque de se connecter à la mauvaise base de données, ce qui pourrait entraîner des erreurs dans les tests et le fonctionnement de l'application. Pour synchroniser l'URL et le port de notre conteneur avec la configuration de l'application Spring Boot, nous utilisons les DynamicPropertySource de Spring Boot. 
 </p>
 
 <p>
@@ -150,9 +150,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @TestContainers
-public class TesthGraphDBContainer {
+public class TestContainerTest {
     @Autowired
-    MyService myService;
+    FriendsService friendsService;
     
     @Container
     public static GraphDBContainer container = new GraphDBContainer("ontotext/graphdb:10.6.4");
@@ -168,7 +168,7 @@ public class TesthGraphDBContainer {
     @Test
     void should_test_something() {
       container.withTrigFiles("sample-data.trig");
-      assertEquals(10, myService.getData().length());
+      assertEquals(10, friendsService.getFriends().length());
     }
 
 }  
