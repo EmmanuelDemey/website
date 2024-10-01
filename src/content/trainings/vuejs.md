@@ -1,6 +1,6 @@
 ---
 title: Vue.js
-image: /public/images/vuejs2.svg
+image: /images/vuejs2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
 description:

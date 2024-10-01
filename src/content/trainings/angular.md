@@ -1,6 +1,6 @@
 ---
 title: Angular
-image: /public/images/angular2.svg
+image: /images/angular2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
 description:

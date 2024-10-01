@@ -1,6 +1,6 @@
 ---
 title: React.js
-image: /public/images/react2.svg
+image: /images/react2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
 description:

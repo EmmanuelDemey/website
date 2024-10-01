@@ -1,6 +1,6 @@
 ---
 title: Accessibilité Numérique
-image: /public/images/accessibility2.svg
+image: /images/accessibility2.svg
 company: IT's on us
 companyUrl: https://www.itsonus.fr/
 description:

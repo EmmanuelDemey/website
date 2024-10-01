@@ -1,6 +1,6 @@
 ---
 title: TypeScript
-image: /public/images/typescript2.svg
+image: /images/typescript2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
 description:

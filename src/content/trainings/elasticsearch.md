@@ -1,6 +1,6 @@
 ---
 title: Elasticsearch
-image: /public/images/elasticsearch2.svg
+image: /images/elasticsearch2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
 description:
