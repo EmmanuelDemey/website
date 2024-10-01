@@ -1,0 +1,104 @@
+---
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/public/img/favicon.png" />
+    <title>{title}</title>
+    <!-- STYLESHEET -->
+    <link href="/public/css/main.css" rel="stylesheet" media="all" />
+    <link href="/public/css/queries.css" rel="stylesheet" media="all" />
+
+    <link rel="stylesheet" href="/public/css/github.min.css" />
+    <!-- Here go your scripts -->
+
+    <script
+      src="https://cdn.metricalp.com/event/metricalp.js"
+      data-tid="mam195"
+      defer></script>
+  </head>
+
+  <body>
+    <div id="container">
+      <header>
+        <h1>
+          <a href="/">
+            <img
+              src="/public/img/ed-logo.svg"
+              alt="Site de Emmanuel Demey"
+            /></a
+          >
+        </h1>
+        <nav id="main-nav">
+          <p class="skip">
+            <a href="#wrapper">Navigation principale (Sauter le menu)</a>
+          </p>
+          <ul>
+            <li><a href="/articles.html"> Articles</a></li>
+            <li><a href="/formations.html"> Formations</a></li>
+            <li><a href="/events.html"> Événements</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <aside class="about">
+        <h2>
+          <img src="/img/ed-logo-min.svg" alt="A propos d'Emmanuel Demey" />
+        </h2>
+        <div class="content">
+          <p>
+            Emmanuel Demey est développeur, consultant et formateur freelance
+            sur différentes problématiques liées au web.
+          </p>
+          <p>
+            Conférencier, organisateur de conférences, podcasteur, auteur du
+            livre Progressive Web App pour ENI.
+          </p>
+          <ul>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                href="mailto:emmanuel.demey@proton.me">Email</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://devlille.fr/">DevLille</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://twitter.com/Webstoriesconf">WebStories Conf</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                rel="noreferrer noopener"
+                href="https://twitter.com/TechEthicFR?s=20">Tech Ethic</a
+              >
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <footer>
+        <p class="copyright">&copy; Emmanuel Demey, 2025</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/MainLayout.astro";
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+
+const date = new Intl.DateTimeFormat("fr").format(article.data.pubDate);
+---
+
+<Layout title={article.data.title}>
+  <article class="h-entry">
+    <header aria-label="Données de l'article">
+      <h2 class="p-name">{article.data.title}</h2>
+      <p class="dt-published">
+        <time datetime={article.data.pubDate}>{date}</time>
+      </p>
+    </header>
+
+    <div class="p-summary">
+      <p>
+        {article.data.description}
+      </p>
+    </div>
+
+    <div class="e-content">
+      <Content />
+    </div>
+  </article>
+</Layout>

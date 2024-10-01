@@ -1,0 +1,18 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/ArticleLayout.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const lastPost = await getEntry("blog", slug);
+---
+
+<Layout article={lastPost} />

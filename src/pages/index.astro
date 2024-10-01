@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/ArticleLayout.astro";
+
+const collection = await getCollection("blog");
+const lastPost = collection.sort(
+  (c1, c2) => c2.data.pubDate.getTime() - c1.data.pubDate.getTime()
+)[0];
+---
+
+<Layout article={lastPost} />

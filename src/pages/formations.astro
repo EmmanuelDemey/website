@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/MainLayout.astro";
+
+const collection = await getCollection("trainings");
+const trainings = collection.sort((c1, c2) =>
+  c1.data.title.localeCompare(c2.data.title)
+);
+---
+
+<Layout title="Mes Formations">
+  <h2>Formations</h2>
+
+  <div class="page-intro">
+    <p>
+      Depuis plus de dix ans, et à travers mes différentes expériences
+      professionnelles, j'ai eu la chance de créer, maintenir et donner de
+      nombreuses formations. Vous trouverez sur cette page, la liste des
+      formations que je propose en tant qu'indépendant. Je vous invite à me
+      contacter par email si vous êtes intéressé.
+    </p>
+  </div>
+
+  <div class="list-of-trainings">
+    {
+      trainings.map(async (training) => {
+        const { Content } = await training.render();
+        return (
+          <div class="t-entry">
+            <div class="intro">
+              <h3>{training.data.title}</h3>
+              <p class="event-data">{training.data.description}</p>
+            </div>
+            <div class="content">
+              <Content />
+              <p>
+                Cette formation est proposée en partenariat avec la société{" "}
+                <a href={training.data.companyUrl} target="_blank">
+                  {training.data.company}
+                </a>
+              </p>
+            </div>
+
+            <p class="picture">
+              <img src={training.data.image} alt="" />
+            </p>
+          </div>
+        );
+      })
+    }
+  </div>
+</Layout>
