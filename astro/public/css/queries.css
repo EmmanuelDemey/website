@@ -1,0 +1,113 @@
+/* --------------------------------------------------------------------
+               			  E DEMEY
+               		Media queries
+-------------------------------------------------------------------- */
+
+
+@media screen and (min-width: 900px) {
+    #container > header {margin-top: 2rem;}
+    nav {
+        position: absolute;
+        width: 55%;
+        max-width: 33rem;
+        bottom: auto;
+        top: 4rem;
+        left: auto;
+        right: 5%;
+        background-color: rgba(255,255,255,0);
+        box-shadow: none;
+    }
+    nav ul {
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        background-color: rgba(255,255,255,0);
+        margin: 0;
+    }
+    nav a {display: block;}
+
+    div.about {margin: 4rem 0 2rem;}
+    div.p-summary {margin: 0 10% 3rem 5%;}
+
+    div.event-entry {
+      display: grid;
+      grid-template-columns: 150px auto;
+      gap: 0 2rem;
+      padding-bottom: 2rem;
+      margin-bottom: 2rem;
+    }
+    div.event-entry p.picture {
+      display: block;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    div.list-of-trainings {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+  div.list-of-articles article.h-entry {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    grid-template-rows: auto 1fr;
+  }
+  div.list-of-articles h3 {margin: 0;}
+  div.list-of-articles p.publish-date {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  div.list-of-articles div.p-summary {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    padding-top: 0;
+    margin-top: 0;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  #container {
+    position: relative;
+    display: flex; 
+    flex-wrap: wrap;
+  }
+    #container > header {
+        box-sizing: border-box;
+        flex-basis: 30%;
+        max-width: 250px;
+        margin: 2rem 5vw;
+        padding-right: 5vw;
+        border-right: 1px solid var(--n-dark);
+    }
+  h1 {width: auto;}
+
+  main {flex: 1; margin-top: 11rem; margin-left: 0;}
+
+  aside.about {
+    position: absolute;
+    width: 180px;
+    top: 285px;
+    left: 0;
+    margin: 0 5vw;
+  }
+  aside.about::before, aside.about::after {content: none;}
+  aside.about h2 {display: none;}
+
+  footer {flex-basis: 100%;}
+}
+
+@media screen and (min-width: 1440px) {
+  #container > header {margin: 2rem 5vw 2rem 2rem;}
+  aside.about {margin: 0 0 0 2rem;}
+  nav {right: 0;}
+  nav li {font-size: 0.95em;}
+  nav a {padding: 0.5em 1em;}
+
+  blockquote {margin: 4rem;}
+}
