@@ -10,10 +10,12 @@ const events = collection
 const podcats = collection
   .filter((event) => event.data.type === "Podcast")
   .sort((c1, c2) => c2.data.date.getTime() - c1.data.date.getTime());
+
+  
 ---
 
 <Layout title="Mes Evénements">
-  <script src="/javascript/lite-yt-embed.js" is:inline></script>
+  <script src="//lite-yt-embed.js" is:inline></script>
   <h2>Événements</h2>
   <div class="list-of-events">
     <h3>Conférences</h3>
@@ -747,3 +749,7 @@ const podcats = collection
     </div>
   </div>
 </Layout>
+
+<script>
+import "lite-youtube-embed"
+</script>
