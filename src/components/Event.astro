@@ -1,0 +1,51 @@
+---
+const { event } = Astro.props;
+const { Content } = await event.render();
+
+
+---
+
+<div class="h-event event-entry">
+    <header>
+      <h4 class="p-name">{event.data.title}</h4>
+      <p class="event-data">
+        {event.data.type} -{" "}
+        <time class="dt-start" datetime={event.data.date.toString()}>
+          {new Intl.DateTimeFormat("fr").format(event.data.date)}
+        </time>
+      </p>
+    </header>
+    <div class="e-content content">
+      <Content />
+
+      {event.data.spotify && (
+        <p class="slides">
+          Ecoutez le podcast sur{" "}
+          <a href={event.data.spotify}>Spotify</a>.
+        </p>
+      )}
+
+      {event.data.youtube && (
+        <div class="video">
+          <lite-youtube
+            videoid={event.data.youtube}
+            style={
+              "background-image: url('https://i.ytimg.com/vi/" +
+              event.data.youtube +
+              "/hqdefault.jpg');"
+            }
+          >
+            <button type="button" class="lty-playbtn">
+              <span class="lyt-visually-hidden">
+                Play Video: {event.data.title}
+              </span>
+            </button>
+          </lite-youtube>
+        </div>
+      )}
+    </div>
+
+    <p class="picture">
+      <img src={event.data.image} alt="" />
+    </p>
+  </div>
