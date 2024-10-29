@@ -5,7 +5,8 @@ import Layout from "../layouts/MainLayout.astro";
 const collection = await getCollection("events");
 const events = collection
   .filter((event) => event.data.type !== "Podcast")
-  .sort((c1, c2) => c2.data.date.getTime() - c1.data.date.getTime());
+  .sort((c1, c2) => c2.data.date.getTime() - c1.data.date.getTime())
+  .filter(event => !event.data.fullPage)
 
 const podcats = collection
   .filter((event) => event.data.type === "Podcast")

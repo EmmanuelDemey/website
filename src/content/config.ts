@@ -6,7 +6,8 @@ const events = defineCollection({
   schema: z.object({
     title: z.string(),
     type: z.string(),
-    image: z.string(),
+    image: z.string().optional(),
+    fullPage: z.boolean().optional(),
     spotify: z.string().optional(),
     youtube: z.string().optional(),
     date: z.coerce.date(),

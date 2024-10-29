@@ -1,0 +1,9 @@
+---
+import { getEntry } from "astro:content";
+import Layout from "../layouts/ArticleLayout.astro";
+
+
+const event = await getEntry("events", "2024-sensibilisation-a11y");
+---
+
+<Layout article={event} />
