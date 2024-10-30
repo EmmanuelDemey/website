@@ -5,7 +5,7 @@ date: 12/01/2024
 fullPage: true
 ---
 
-**Date :** 3er décembre 2024 (en ligne)  
+**Date :** 4 décembre 2024 (en ligne)  
 **Tarif :** 40 euros  
 **Lien d'inscription :** [Acheter ici](https://buy.stripe.com/4gw01D9re3527cI5kk)  
 **Contact :** demey.emmanuel@gmail.com
