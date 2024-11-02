@@ -16,5 +16,6 @@ description:
 - Gestion des formulaires
 - React Router
 - Context et Reducer
-- React Redux et Redux Toolkit
+- State Manager
 - Outillage
+- Next.js

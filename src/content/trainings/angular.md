@@ -18,3 +18,4 @@ description:
 - Gestion des formulaires
 - Angular Router
 - Outillage
+- Angular Universal / AnalogJS
