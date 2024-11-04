@@ -1,8 +1,12 @@
 ---
+import { date } from "astro:schema";
+
 const { event } = Astro.props;
 const { Content } = await event.render();
 
-
+const date: Date = event.data.date ?? new Date();
+const datetime = date.toISOString();
+const formattedDate = new Intl.DateTimeFormat("fr").format(date)
 ---
 
 <div class="h-event event-entry">
@@ -10,8 +14,8 @@ const { Content } = await event.render();
       <h4 class="p-name">{event.data.title}</h4>
       <p class="event-data">
         {event.data.type} -{" "}
-        <time class="dt-start" datetime={event.data.date.toString()}>
-          {new Intl.DateTimeFormat("fr").format(event.data.date)}
+        <time class="dt-start" datetime={datetime}>
+          {formattedDate}
         </time>
       </p>
     </header>
