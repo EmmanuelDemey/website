@@ -4,8 +4,10 @@ import Layout from "../layouts/MainLayout.astro";
 const { article } = Astro.props;
 const { Content } = await article.render();
 
-const date = new Intl.DateTimeFormat("fr").format(article.data.pubDate);
-const dateTime = article.data.pubDate.toISOString();
+
+const publicationDate = article.data.pubDate ?? new Date();
+const date = new Intl.DateTimeFormat("fr").format(publicationDate);
+const dateTime = publicationDate.toISOString();
 ---
 
 <Layout title={article.data.title}>
