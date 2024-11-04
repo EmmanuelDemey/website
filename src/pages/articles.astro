@@ -14,6 +14,10 @@ const posts = collection.sort(
   <div class="list-of-articles">
     {
       posts.map((post) => {
+        const date = post.data.pubDate ?? new Date();
+        const dateTime = date.toISOString();
+        const formattedDate = new Intl.DateTimeFormat("fr").format(date)
+        
         return (
           <article class="k-entry h-entry">
             <h3 class="p-name">
@@ -22,9 +26,9 @@ const posts = collection.sort(
             <p class="publish-date">
               <time
                 class="dt-published"
-                datetime={post.data.pubDate.toString()}
+                datetime={dateTime}
               >
-                {new Intl.DateTimeFormat("fr").format(post.data.pubDate)}
+                {formattedDate}
               </time>
             </p>
             <div class="e-content p-summary">
