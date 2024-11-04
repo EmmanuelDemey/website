@@ -5,6 +5,7 @@ const { article } = Astro.props;
 const { Content } = await article.render();
 
 const date = new Intl.DateTimeFormat("fr").format(article.data.pubDate);
+const dateTime = article.data.pubDate.toISOString();
 ---
 
 <Layout title={article.data.title}>
@@ -12,7 +13,7 @@ const date = new Intl.DateTimeFormat("fr").format(article.data.pubDate);
     <header aria-label="Données de l'article">
       <h2 class="p-name">{article.data.title}</h2>
       <p class="dt-published">
-        <time datetime={article.data.pubDate}>{date}</time>
+        <time datetime={dateTime}>{date}</time>
       </p>
     </header>
 
