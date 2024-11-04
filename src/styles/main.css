@@ -33,24 +33,24 @@ header, footer, main, nav, aside, article, section, figure, figcaption {
 /* ------------------------------ DEFAULTS ---------------------------- */
 @font-face {
     font-family: 'quicksandbold';
-    src: url('quicksand-bold-webfont.woff2') format('woff2'),
-         url('quicksand-bold-webfont.woff') format('woff');
+    src: url('/fonts/quicksand-bold-webfont.woff2') format('woff2'),
+         url('/fonts/quicksand-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'quicksandlight';
-    src: url('quicksand-light-webfont.woff2') format('woff2'),
-         url('quicksand-light-webfont.woff') format('woff');
+    src: url('/fonts/quicksand-light-webfont.woff2') format('woff2'),
+         url('/fonts/quicksand-light-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'quicksandregular';
-    src: url('quicksand-regular-webfont.woff2') format('woff2'),
-         url('quicksand-regular-webfont.woff') format('woff');
+    src: url('/fonts/quicksand-regular-webfont.woff2') format('woff2'),
+         url('/fonts/quicksand-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

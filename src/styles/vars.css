@@ -27,7 +27,7 @@
 	--n-light: #F6F6F6;
 	--alert-color: #DB0349;
 
-  --stack: quicksandregular, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  	--stack: quicksandregular, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--stack-b: quicksandbold, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--stack-i: quicksandlight, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--stack-head: quicksandbold, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;

@@ -1,4 +1,8 @@
 ---
+import "../styles/main.css"
+import "../styles/queries.css"
+import "../styles/github.min.css"
+
 const { title } = Astro.props;
 ---
 
@@ -12,11 +16,6 @@ const { title } = Astro.props;
     <title>{title}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
     <!-- STYLESHEET -->
-    <link href="/css/main.css" rel="stylesheet" media="all" />
-    <link href="/css/queries.css" rel="stylesheet" media="all" />
-
-    <link rel="stylesheet" href="/css/github.min.css" />
-    <!-- Here go your scripts -->
 
     <script
       src="https://cdn.metricalp.com/event/metricalp.js"
