@@ -4,31 +4,35 @@
 /*-------------------------------------------------------------------- */
 
 :root {
-	--body-text: #000;
-	--body-text-light: #767676;
-	--body-bg: #E8EBEC;
-	--text-inv: #FFF;
+  --body-text: #000;
+  --body-text-light: #767676;
+  --body-bg: #e8ebec;
+  --text-inv: #fff;
 
-	--link-color: #525F6E;
+  --link-color: #525f6e;
 
-	--main-color: #017987;
-	--main-light: #DFFDF2;
-	--secondary: #445D7B;
-	--secondary-light: #EEF6F9;
-	--alternative: #815177;
-	--hot-color: #F90;
-	--hot-light: #FFF791;
-	--hot-lighter: #FFFADE;
-	--highc-color: #0A1396;
-	--n-s-dark: #000;
-	--n-dark: #19232C;
-	--n-dark-medium: #B2B8BE;
-	--n-medium: #EBE9EC;
-	--n-light: #F6F6F6;
-	--alert-color: #DB0349;
+  --main-color: #017987;
+  --main-light: #dffdf2;
+  --secondary: #445d7b;
+  --secondary-light: #eef6f9;
+  --alternative: #815177;
+  --hot-color: #f90;
+  --hot-light: #fff791;
+  --hot-lighter: #fffade;
+  --highc-color: #0a1396;
+  --n-s-dark: #000;
+  --n-dark: #19232c;
+  --n-dark-medium: #b2b8be;
+  --n-medium: #ebe9ec;
+  --n-light: #f6f6f6;
+  --alert-color: #db0349;
 
-  	--stack: quicksandregular, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	--stack-b: quicksandbold, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	--stack-i: quicksandlight, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	--stack-head: quicksandbold, "Arial Rounded MT Bold", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --stack: quicksandregular, "Arial Rounded MT Bold", Roboto, "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  --stack-b: quicksandbold, "Arial Rounded MT Bold", Roboto, "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  --stack-i: quicksandlight, "Arial Rounded MT Bold", Roboto, "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
+  --stack-head: quicksandbold, "Arial Rounded MT Bold", Roboto, "Helvetica Neue",
+    Helvetica, Arial, sans-serif;
 }

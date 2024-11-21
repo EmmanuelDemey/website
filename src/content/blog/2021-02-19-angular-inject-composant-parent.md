@@ -54,7 +54,7 @@ export class NgbPanelToggle {
 
   constructor(
     public accordion: NgbAccordion,
-    @Optional() @Host() public panel: NgbPanel
+    @Optional() @Host() public panel: NgbPanel,
   ) {}
 }
 ```

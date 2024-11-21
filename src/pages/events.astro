@@ -1,19 +1,17 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/MainLayout.astro";
-import EventBlock from '../components/Event.astro';
+import EventBlock from "../components/Event.astro";
 
 const collection = await getCollection("events");
 const events = collection
   .filter((event) => event.data.type !== "Podcast")
   .sort((c1, c2) => c2.data.date.getTime() - c1.data.date.getTime())
-  .filter(event => !event.data.fullPage)
+  .filter((event) => !event.data.fullPage);
 
 const podcats = collection
   .filter((event) => event.data.type === "Podcast")
   .sort((c1, c2) => c2.data.date.getTime() - c1.data.date.getTime());
-
-  
 ---
 
 <Layout title="Mes Evénements">
@@ -22,23 +20,16 @@ const podcats = collection
   <div class="list-of-events">
     <h3>Conférences</h3>
 
-    {
-      events.map(async (event) => <EventBlock event={event}/>)
-    }
-
+    {events.map(async (event) => <EventBlock event={event} />)}
 
     <div class="list-of-events">
       <h3>Podcasts</h3>
 
-      {
-        podcats.map(async (event) => <EventBlock event={event} />)
-      }
-
-  
+      {podcats.map(async (event) => <EventBlock event={event} />)}
     </div>
   </div>
 </Layout>
 
 <script>
-import "lite-youtube-embed"
+  import "lite-youtube-embed";
 </script>

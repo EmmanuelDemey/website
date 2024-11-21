@@ -4,7 +4,7 @@ import Layout from "../layouts/MainLayout.astro";
 
 const collection = await getCollection("blog");
 const posts = collection.sort(
-  (c1, c2) => c2.data.pubDate.getTime() - c1.data.pubDate.getTime()
+  (c1, c2) => c2.data.pubDate.getTime() - c1.data.pubDate.getTime(),
 );
 ---
 
@@ -16,18 +16,15 @@ const posts = collection.sort(
       posts.map((post) => {
         const date = post.data.pubDate ?? new Date();
         const dateTime = date.toISOString();
-        const formattedDate = new Intl.DateTimeFormat("fr").format(date)
-        
+        const formattedDate = new Intl.DateTimeFormat("fr").format(date);
+
         return (
           <article class="k-entry h-entry">
             <h3 class="p-name">
               <a href={"blog/" + post.slug}>{post.data.title}</a>
             </h3>
             <p class="publish-date">
-              <time
-                class="dt-published"
-                datetime={dateTime}
-              >
+              <time class="dt-published" datetime={dateTime}>
                 {formattedDate}
               </time>
             </p>

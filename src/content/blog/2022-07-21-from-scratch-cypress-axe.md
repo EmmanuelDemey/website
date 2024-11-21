@@ -201,7 +201,7 @@ if (!skipFailures) {
     0,
     `${violations.length} accessibility violation${
       violations.length === 1 ? "" : "s"
-    } ${violations.length === 1 ? "was" : "were"} detected`
+    } ${violations.length === 1 ? "was" : "were"} detected`,
   );
 } else if (violations.length) {
   Cypress.log({

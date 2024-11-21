@@ -4,7 +4,7 @@ import Layout from "../layouts/MainLayout.astro";
 
 const collection = await getCollection("trainings");
 const trainings = collection.sort((c1, c2) =>
-  c1.data.title.localeCompare(c2.data.title)
+  c1.data.title.localeCompare(c2.data.title),
 );
 ---
 
