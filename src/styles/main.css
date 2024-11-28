@@ -631,3 +631,9 @@ lite-youtube.lyt-activated > .lty-playbtn {
   white-space: nowrap;
   width: 1px;
 }
+
+.event-information {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 16px;
+}

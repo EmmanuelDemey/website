@@ -5,10 +5,21 @@ date: 12/01/2024
 fullPage: true
 ---
 
-**Date :** 4 décembre 2024 (en ligne)  
-**Tarif :** 40 euros  
-**Lien d'inscription :** [Acheter ici](https://buy.stripe.com/4gw01D9re3527cI5kk)  
-**Contact :** demey.emmanuel@gmail.com
+<dl class="event-information">
+  <dt>Date</dt>
+  <dd>4 décembre 2024 (en ligne)</dd>
+  <dt>Tarif</dt>
+  <dd>40 euros </dd>
+  <dt>Lien d'inscription</dt>
+  <dd>
+  <a target="_blank"
+                rel="noreferrer noopener"
+                href="https://buy.stripe.com/4gw01D9re3527cI5kk">Achetez-ici</a
+              >
+              </dd>
+  <dt>Contact</dt>
+  <dd>demey.emmanuel@gmail.com</dd>
+</dl>
 
 ---
 
