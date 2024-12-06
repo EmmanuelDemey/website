@@ -33,6 +33,6 @@
     Helvetica, Arial, sans-serif;
   --stack-i: quicksandlight, "Arial Rounded MT Bold", Roboto, "Helvetica Neue",
     Helvetica, Arial, sans-serif;
-  --stack-head: quicksandbold, "Arial Rounded MT Bold", Roboto, "Helvetica Neue",
-    Helvetica, Arial, sans-serif;
+  --stack-head: quicksandbold, "Arial Rounded MT Bold", Roboto,
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
