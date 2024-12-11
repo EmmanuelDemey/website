@@ -12,10 +12,11 @@ description:
 - Présentation et initiation d’un projet Angular
 - Dynamisation HTML
 - Composants
-- Directives
 - Injection de Dépendances
-- RxJS
-- Gestion des formulaires
 - Angular Router
+- Signals
+- Gestion des formulaires
+- RxJS
+- Directives
 - Outillage
 - Angular Universal / AnalogJS
