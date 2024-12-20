@@ -17,7 +17,7 @@
     "@astrojs/mdx": "^4.0.2",
     "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.0.5",
+    "astro": "^5.1.1",
     "lite-youtube-embed": "^0.3.3",
     "typescript": "^5.7.2"
   },
