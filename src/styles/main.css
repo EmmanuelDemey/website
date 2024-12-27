@@ -424,9 +424,9 @@ article.h-entry p.dt-published {
 
 div.p-summary,
 div.page-intro {
-  max-width: 25em;
+  max-width: 50em;
   padding-left: 1rem;
-  margin: 0 10% 2rem 5%;
+  margin: 0 10% 2rem 0;
   border-left: 4px solid var(--hot-color);
 }
 

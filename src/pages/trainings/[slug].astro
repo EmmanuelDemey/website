@@ -1,0 +1,18 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import Layout from "../../layouts/TrainingLayout.astro";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("trainings");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { slug } = Astro.params;
+
+const lastPost = await getEntry("trainings", slug);
+---
+
+<Layout training={lastPost} />

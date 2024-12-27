@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../layouts/MainLayout.astro";
+import Layout from "../../layouts/MainLayout.astro";
 
 const collection = await getCollection("trainings");
 const trainings = collection.sort((c1, c2) =>
@@ -28,7 +28,11 @@ const trainings = collection.sort((c1, c2) =>
         return (
           <div class="t-entry">
             <div class="intro">
-              <h3>{training.data.title}</h3>
+              <h3>
+                <a href={`/trainings/${training.slug}`}>
+                  {training.data.title}
+                </a>
+              </h3>
               <p class="event-data">{training.data.description}</p>
             </div>
             <div class="content">

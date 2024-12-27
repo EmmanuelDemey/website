@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/MainLayout.astro";
+
+const { training } = Astro.props;
+const { Content } = await training.render();
+
+const complementary = training.data.complementary ?? [];
+---
+
+<Layout title={training.data.title}>
+  <article class="h-entry">
+    <header aria-label="Données de l'article">
+      <h2 class="p-name">{training.data.title}</h2>
+    </header>
+
+    <div class="p-summary">
+      <p>
+        {training.data.description}
+      </p>
+    </div>
+
+    <div class="e-content">
+      <Content />
+
+      {
+        complementary.length > 0 && (
+          <>
+            En fonction de votre besoin, du contenu supplémentaire peut être
+            abordé.
+            <ul>
+              {complementary.map((c) => (
+                <li>{c}</li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+    </div>
+  </article>
+</Layout>

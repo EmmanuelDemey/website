@@ -33,6 +33,7 @@ const trainings = defineCollection({
     company: z.string(),
     companyUrl: z.string(),
     description: z.string(),
+    complementary: z.array(z.string()).optional(),
   }),
 });
 
