@@ -28,7 +28,7 @@ const complementary = training.data.complementary ?? [];
             En fonction de votre besoin, du contenu supplémentaire peut être
             abordé.
             <ul>
-              {complementary.map((c) => (
+              {complementary.map((c: string) => (
                 <li>{c}</li>
               ))}
             </ul>
