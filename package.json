@@ -15,9 +15,9 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.0.3",
-    "@astrojs/rss": "^4.0.10",
+    "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
-    "astro": "^5.1.1",
+    "astro": "^5.1.2",
     "lite-youtube-embed": "^0.3.3",
     "typescript": "^5.7.2"
   },
