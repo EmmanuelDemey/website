@@ -19,7 +19,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^5.3.1",
     "lite-youtube-embed": "^0.3.3",
-    "typescript": "^5.7.2"
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
