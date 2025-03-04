@@ -3,8 +3,8 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 
 import sitemap from "@astrojs/sitemap";
+import { satoriPlugin } from "./src/plugins/satori";
 
-// https://astro.build/config
 export default defineConfig({
   markdown: {
     shikiConfig: {
@@ -12,5 +12,5 @@ export default defineConfig({
     },
   },
   site: "https://emmanueldemey.dev/",
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap(), satoriPlugin()],
 });
