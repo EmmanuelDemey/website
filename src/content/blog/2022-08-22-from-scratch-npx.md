@@ -1,6 +1,7 @@
 ---
 title: "From Scratch - NPX"
 description: "Dans ce nouvel article de série “From Scratch”, nous allons décortiquer l'outil NPX."
+keywords: "NPX, outil, from scratch"
 pubDate: "08/22/2022"
 ---
 

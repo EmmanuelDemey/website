@@ -1,6 +1,7 @@
 ---
 title: "Speaker notes sur Sli.dev en full screen"
 description: "Comment pouvons-nous afficher les speaker notes de Sli.dev en full Screen ?"
+keywords: "slidev, conference"
 pubDate: "05/21/2024"
 ---
 

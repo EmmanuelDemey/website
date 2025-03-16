@@ -1,6 +1,7 @@
 ---
 title: "From Scratch - Cypress Axe"
 description: "Voici le premier article d'une série que nous allons nommer “From Scratch”. Le but de ces articles est de prendre un projet open-source, d’en lire le code et essayer d’en expliquer le fonctionnement."
+keywords: "cypress, test, from scratch"
 pubDate: "08/22/2022"
 ---
 

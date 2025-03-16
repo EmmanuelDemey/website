@@ -1,6 +1,7 @@
 ---
 title: "Écrire un Plugin pour Vite Introduction à I18NMerge"
 description: "Écrire un Plugin pour Vite : Introduction à I18NMerge"
+keywords: "vite, plugin, outil"
 pubDate: "05/30/2024"
 ---
 

@@ -3,6 +3,7 @@ title: Angular
 image: /images/angular2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
+keywords: formation, Angular, JavaScript, TypeScript
 description:
   Angular est le framework qui propose une base solide pour le développement d'applications Web. Fort de son
   langage Typescript et de sa structuration, c’est la solution à favoriser pour des projets assez conséquents,

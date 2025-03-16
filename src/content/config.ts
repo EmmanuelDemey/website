@@ -20,6 +20,7 @@ const blog = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    keywords: z.string(),
     pubDate: z.coerce.date(),
   }),
 });
@@ -33,6 +34,7 @@ const trainings = defineCollection({
     company: z.string(),
     companyUrl: z.string(),
     description: z.string(),
+    keywords: z.string(),
     complementary: z.array(z.string()).optional(),
   }),
 });

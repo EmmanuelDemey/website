@@ -14,7 +14,11 @@ const podcats = collection
   .sort((c1, c2) => c2.data.date.getTime() - c1.data.date.getTime());
 ---
 
-<Layout title="Mes Evénements">
+<Layout
+  title="Mes Evénements"
+  description="Evenements auxquels Emmanuel Demey a participé"
+  keywords="Conférence, podcast, partage, tech"
+>
   <script src="//lite-yt-embed.js" is:inline></script>
   <h2>Événements</h2>
   <div class="list-of-events">

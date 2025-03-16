@@ -15,4 +15,4 @@ const { slug } = Astro.params;
 const lastPost = await getEntry("trainings", slug);
 ---
 
-<Layout training={lastPost} />
+<Layout training={lastPost!} />

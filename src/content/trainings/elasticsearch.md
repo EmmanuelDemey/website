@@ -3,6 +3,7 @@ title: Elasticsearch
 image: /images/elasticsearch2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
+keywords: formation, Elasticsearch, Elastic, ES
 description:
   Elasticsearch est une solution open-source reconnue lorsque nous devons mettre en place une solution de moteur
   de recherche. Que ce soit pour proposer un simple champ de formulaire aux utilisateurs ou pour mettre en place

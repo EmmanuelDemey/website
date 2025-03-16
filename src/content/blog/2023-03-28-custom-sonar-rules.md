@@ -1,6 +1,7 @@
 ---
 title: "Inclure des règles custom dans Sonar"
 description: "Dans cet article, je vais expliquer comment nous pouvons inclure des règles custom Sonar depuis notre CI."
+keywords: "soanr, plugin, rule, règle, qualité"
 pubDate: "03/28/2023"
 ---
 

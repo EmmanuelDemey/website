@@ -3,6 +3,13 @@ import "../styles/main.css";
 import "../styles/queries.css";
 import "../styles/github.min.css";
 
+interface Props {
+  title: string;
+  description: string;
+  keywords: string;
+  image?: string;
+}
+
 const { title, description, keywords, image = "./index-og.png" } = Astro.props;
 ---
 

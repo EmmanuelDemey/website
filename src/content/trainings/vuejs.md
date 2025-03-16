@@ -3,6 +3,7 @@ title: Vue.js
 image: /images/vuejs2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
+keywords: formation, TypeScript, JavaScript, Vue.js
 description:
   Depuis plusieurs années, Vue.js est devenue l’une des solutions les plus utilisées pour développer des Single
   Page Application. Grâce à sa simplicité de mise en œuvre mais également à son écosystème, l’expérience ressentie

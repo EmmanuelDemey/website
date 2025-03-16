@@ -1,5 +1,9 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import Layout from "../layouts/MainLayout.astro";
+interface Props {
+  training: CollectionEntry<"trainings">;
+}
 
 const { training } = Astro.props;
 const { Content } = await training.render();
@@ -7,7 +11,11 @@ const { Content } = await training.render();
 const complementary = training.data.complementary ?? [];
 ---
 
-<Layout title={training.data.title}>
+<Layout
+  title={training.data.title}
+  keywords={training.data.keywords}
+  description={training.data.description}
+>
   <article class="h-entry">
     <header aria-label="Données de l'article">
       <h2 class="p-name">{training.data.title}</h2>

@@ -1,5 +1,10 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import Layout from "../layouts/MainLayout.astro";
+
+interface Props {
+  article: CollectionEntry<"blog">;
+}
 
 const { article } = Astro.props;
 const { Content } = await article.render();
@@ -9,7 +14,11 @@ const date = new Intl.DateTimeFormat("fr").format(publicationDate);
 const dateTime = publicationDate.toISOString();
 ---
 
-<Layout title={article.data.title}>
+<Layout
+  title={article.data.title}
+  keywords={article.data.keywords}
+  description={article.data.description}
+>
   <article class="h-entry">
     <header aria-label="Données de l'article">
       <h2 class="p-name">{article.data.title}</h2>

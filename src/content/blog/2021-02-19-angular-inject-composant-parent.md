@@ -1,6 +1,7 @@
 ---
 title: "Communication entre composants"
 description: "Angular propose de multiples syntaxes pour partager de l'informations entre des composants.Mais connaissez-vous celle-ci ?"
+keywords: "angular, inject"
 pubDate: "03/24/2021"
 ---
 
