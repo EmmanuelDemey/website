@@ -1,32 +1,15 @@
 ---
-title: Recoil, un state management nouvelle génération
+title: Recoil, a Next-Generation State Management
 type: Conférence
 date: 03/25/2021
 image: https://secure.meetupstatic.com/photos/event/6/b/4/8/highres_495087464.jpeg
 youtube: hfcm8pUrzp4
 ---
 
-Si vous êtes développeur React.JS, je pense qu'il n'y a pas trop de
-doute à se poser si vous lisez cet abstract, vous êtes surement à
-l'aise avec le concept de state management. Popularisé notamment grâce
-au pattern Redux et à la librairie React-redux, ce concept permet de
-centraliser la gestion de la donnée manipulée par notre application.
+If you are a React.js developer, there’s probably no doubt — if you’re reading this abstract, you are most likely already familiar with the concept of state management. Popularized through the Redux pattern and the React-Redux library, this concept allows us to centralize the management of the data used by our application.
 
-La donnée ? Toute la donnée ? Malheureusement, dans la plupart des
-applications sur lesquelles j'interviens, c'est le cas. Nous avons
-pris l'habitude de tout centraliser au cas ou plusieurs composants
-auraient besoin de ces informations. Et bien évidemment, cela est
-rarement le cas.
+The data? All the data? Unfortunately, in most applications I’ve worked on, that’s exactly the case. We’ve gotten used to centralizing everything, just in case several components might need the same information. And of course, that’s rarely true.
 
-Nous avons tellement pris l'habitude de tout centraliser, qu'ajouter
-le support d'une nouvelle donnée nécessite la modification de
-plusieurs fichiers, afin d'implémenter les actions, le reducer ou
-encore les sélecteurs, ... Le coté structurant, que devait nous
-apporter ce genre de solution, a transformé notre application en un
-vrai plat de spaghetti, difficile à comprendre pour un novice.
+We’ve become so accustomed to centralizing everything that adding support for a new piece of data requires modifying multiple files — implementing actions, reducers, selectors, and more. The structuring benefit that these solutions were supposed to bring has instead turned our applications into a real spaghetti mess, hard to understand for newcomers.
 
-Depuis, d'autres solutions sont apparues, comme par exemple Mobx.
-Durant cette conférence, je souhaite vous présenter le tout dernier :
-Recoil. A travers un live coding et la découverte de ses entrailles,
-nous allons découvrir les avantages et les inconvénients de ce nouveau
-projet développé chez Facebook.
+Since then, other solutions have appeared, such as MobX. In this talk, I’d like to introduce you to the latest one: Recoil. Through live coding and a deep dive into its internals, we’ll explore the advantages and drawbacks of this new project developed at Facebook.

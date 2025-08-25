@@ -1,20 +1,12 @@
 ---
-title: Eco-conception de service numérique
+title: Eco-design of Digital Services
 type: Conférence
 date: 09/08/2022
 image: https://fdelbrayelle.github.io/images/ippon_new_logo.png
 ---
 
-Nous passons nos journées à développer des applications dans le but de
-révolutionner le monde, résoudre des problèmes ou encore créer de
-nouveaux usages. Mais avons nous conscience de l'impact que cela peut
-avoir sur notre environnement ? Impact négatif ou positif d'ailleurs.
-Je suis malheureusement persuadé que non.
+We spend our days developing applications to revolutionize the world, solve problems, or create new use cases. But are we truly aware of the impact this can have on our environment — whether negative or positive? Unfortunately, I am convinced that we are not.
 
-Rejetant la faute du changement climatique à d'autres branches de
-notre économie, nous ne remettons jamais en questions l'impact de
-notre industrie, en forte croissance d'année en année.
+By shifting the blame for climate change onto other sectors of the economy, we rarely question the impact of our own industry, which continues to grow year after year.
 
-Après un état des lieux de l'impact du numérique sur l'environnement,
-je présenterai des solutions que vous pourriez envisager de mettre en
-place rapidement sur vos propres projets.
+After an overview of the environmental impact of digital technologies, I will present solutions you could quickly implement in your own projects.

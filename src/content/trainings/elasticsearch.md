@@ -3,20 +3,19 @@ title: Elasticsearch
 image: /images/elasticsearch2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
-keywords: formation, Elasticsearch, Elastic, ES
+keywords: training, Elasticsearch, Elastic, ES
 description:
-  Elasticsearch est une solution open-source reconnue lorsque nous devons mettre en place une solution de moteur
-  de recherche. Que ce soit pour proposer un simple champ de formulaire aux utilisateurs ou pour mettre en place
-  une solution permettant d’observer l’état d’un système informatique, Elasticsearch vous propose le nécessaire
-  pour y arriver.
+  Elasticsearch is a well-known open-source solution for implementing a search engine.
+  Whether you need to provide users with a simple search field or build a solution to observe
+  the state of an IT system, Elasticsearch provides everything you need to make it happen.
 ---
 
-- Présentation de l’écosystème des moteurs de recherche
-- Installation et Typologie d’un cluster Elasticsearch
-- Indexation unitaire et multiple
-- Mapping et Analyzer
-- Recherches
-- Agrégation
+- Introduction to the search engine ecosystem
+- Installation and typology of an Elasticsearch cluster
+- Single and bulk indexing
+- Mapping and Analyzers
+- Queries
+- Aggregations
 - Ingest Pipelines
-- Utilisation de Elasticsearch dans une application Java ou Node.js
-- Intéraction entre Elasticsearch et Testcontainers
+- Using Elasticsearch in a Java or Node.js application
+- Interaction between Elasticsearch and Testcontainers

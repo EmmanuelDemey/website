@@ -1,8 +1,8 @@
 ---
-title: Ecoconception de service numérique
+title: Eco-design of Digital Services
 image: /images/accessibility2.svg
 company: IT's on us
 companyUrl: https://www.itsonus.fr/
-keywords: formation, EcoConception, GreenIT
-description: L’éco-conception de service numérique (anciennement appelé éco-conception logicielle ou des logiciels) consiste à améliorer l’efficience des applications dès leur conception pour réduire les impacts environnementaux et économiques associés tout en améliorant significativement l’expérience utilisateur. Cette démarche s’inscrit dans le cadre plus large de la conception responsable de service numérique.
+keywords: training, Eco-design, GreenIT
+description: The eco-design of digital services (formerly called software eco-design) consists of improving the efficiency of applications right from their design phase, in order to reduce associated environmental and economic impacts while significantly enhancing the user experience. This approach is part of the broader framework of responsible digital service design.
 ---

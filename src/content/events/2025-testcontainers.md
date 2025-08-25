@@ -1,8 +1,10 @@
 ---
-title: Présentation et Live Coding autour de Testcontainers
+title: Presentation and Live Coding with Testcontainers
 type: Conférence
 date: 01/16/2025
 image: https://secure.meetupstatic.com/photos/event/3/1/0/600_525180784.webp?w=384
 ---
 
-Testcontainers est une solution de plus en plus utilisée pour interagir avec des images Docker dans des environnements de développement ou de tests. A travers cette conférence, Quentin et Emmanuel feront un live coding durant lequel cette solution sera mise en place dans une application Spring Boot. Venez découvrir la simplicité de mise en place de cette technologie, et pourquoi pas l’utiliser dès le lendemain dans votre société ou chez votre client.
+Testcontainers is an increasingly popular solution for interacting with Docker images in development or testing environments.
+
+In this talk, Quentin and Emmanuel will run a live coding session demonstrating how to integrate this solution into a Spring Boot application. Come and discover how simple it is to get started with this technology — and why not start using it the very next day in your company or with your client?

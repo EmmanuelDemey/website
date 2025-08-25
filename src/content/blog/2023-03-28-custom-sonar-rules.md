@@ -1,15 +1,15 @@
 ---
-title: "Inclure des règles custom dans Sonar"
-description: "Dans cet article, je vais expliquer comment nous pouvons inclure des règles custom Sonar depuis notre CI."
-keywords: "soanr, plugin, rule, règle, qualité"
+title: "Including Custom Rules in Sonar"
+description: "In this article, I will explain how we can include custom Sonar rules directly from our CI."
+keywords: "sonar, plugin, rule, quality"
 pubDate: "03/28/2023"
 ---
 
-Il y a quelques semaines, j'ai créé un module NPm permettant d'estimer l'impact environnemental d'un service numérique, en se basant sur les calculs réalisés par le site EcoIndex.fr ou encore le plugin GreenIT Analysis. Voici le repository Github de mon petit projet 😁
+A few weeks ago, I created an NPM module that estimates the environmental impact of a digital service, based on the calculations from [EcoIndex.fr](https://ecoindex.fr) and the **GreenIT Analysis** plugin. Here’s the GitHub repository of my little project 😁
 
-Une question était toujours en attente pour l'un de mes clients qui utilisait mon module. Comment intégrer ces résultats dans Sonar ?
+One question remained open for one of my clients who was using this module: **How can we integrate these results into Sonar?**
 
-Le but de petit article est de vous annoncer que c'est tout à fait possible avec Sonar d'inclure des règles custom. La seule chose à respecter est de créer un fichier JSON respectant cette structure.
+The purpose of this short article is to announce that it is indeed possible to include **custom rules** in Sonar. The only requirement is to generate a JSON file that follows this structure:
 
 ```json
 {
@@ -29,9 +29,9 @@ Le but de petit article est de vous annoncer que c'est tout à fait possible ave
 }
 ```
 
-Ceci est un exemple basique de fichier. Des paramètres supplémentaires peuvent y être ajoutés: comme par exemple les numéros de lignes ou l'erreur est detectée. La seule information importante est la propriété filePath qui doit pointer vers un fichier connu par Sonar. Si ce n'est pas le cas, Sonar n'affichera pas votre règle custom.
+This is a basic example of such a file. Additional parameters can be added, for example the line numbers where the error was detected. The **most important property** is `filePath`, which must point to a file that Sonar recognizes. If it doesn’t, Sonar will simply not display your custom rule.
 
-Une fois ce fichier généré par vos soins, il suffit de l'inclure dans le fihier de configuration Sonar, et le tour est joué...
+Once this file is generated, you just need to include it in your Sonar configuration file, and that’s it:
 
 ```
 sonar.projectKey=training:external-issues

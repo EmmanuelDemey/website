@@ -6,5 +6,5 @@ image: https://pbs.twimg.com/profile_images/1369565728681168896/-IUwYZgB_400x400
 youtube: m-i8f-a6K4Y
 ---
 
-Podcast d'une heure autour des nouveautés de l'écosystème Web. J'ai
-présenté la rubrique "La Météo du Web".
+One-hour podcast about the latest updates in the Web ecosystem.
+I presented the segment “The Web Weather.”

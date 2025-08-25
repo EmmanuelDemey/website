@@ -1,24 +1,26 @@
 ---
 title: "From Scratch - NPX"
-description: "Dans ce nouvel article de série “From Scratch”, nous allons décortiquer l'outil NPX."
-keywords: "NPX, outil, from scratch"
+description: "In this new article of the 'From Scratch' series, we will dissect the NPX tool."
+keywords: "NPX, tool, from scratch"
 pubDate: "08/22/2022"
 ---
 
-L'outil NPX est un outil en ligne de commande installé automatiquement quand nous installons Node.js et NPM sur notre machine. Il permet de facilement exécuter des modules NPM sans avoir besoin de les installer manuellement. Ci-dessous, un exemple permettant d'initier un projet Angular grâce au module @angular/cli .
+The NPX tool is a command-line utility automatically installed when we install Node.js and NPM on our machine. It allows us to easily run NPM modules without having to install them manually. Below is an example that initializes a new Angular project using the `@angular/cli` module:
 
 ```
+
 npx @angular/cli new App
+
 ```
 
-Mais si nous jetons un coup d'oeil au code source , cet outil est un simple outil de réécriture. En effet, son seul but est de regénérer une commande npx exec correspondant à l'action que nous souhaitons réaliser. Dans cet article, nous allons essayer de comprendre son fonctionnement.
+But if we take a closer look at its source code, this tool is essentially a simple **rewriting utility**. In fact, its only purpose is to regenerate an `npm exec` command corresponding to the action we want to perform. In this article, we’ll try to understand how it works.
 
-En Node.js, pour récupérer les arguments passés à la ligne de commande, nous devons manipuler le tableau argv . Ce tableau contient comme premier élément l'exécutable utilisé, dans notre cas Node.js, et ensuite en deuxième place, la commande en elle même : pour nous npx.
+In Node.js, to access the arguments passed to the command line, we work with the `argv` array. This array contains, as its first element, the executable used (in our case Node.js), and as its second element, the actual command: here, `npx`.
 
-Comme indiqué précédemment, npx est un simple outil de réécriture. Pour faire ce traitement, nous allons tout simplement modifier ce tableau argv afin d'avoir celui souhaité par la commande npm exec . Nous allons donc :
+As mentioned earlier, `npx` is simply a rewriting tool. To achieve this, we just need to modify the `argv` array so that it matches what the `npm exec` command expects. We will:
 
-Remplacer le deuxième élément de argv pour pointer vers le script de la CLI de NPM
-Insérer la chaîne de caractères exec en troisième position.
+- Replace the second element of `argv` to point to the NPM CLI script
+- Insert the string `exec` as the third argument
 
 ```javascript
 #!/usr/bin/env node
@@ -27,13 +29,13 @@ process.argv[1] = require.resolve("./npm-cli.js");
 process.argv.splice(2, 0, "exec");
 ```
 
-Si nous regardons la documentation de la commande npm exec , voici comment elle doit etre utilisée pour exécuter le même module @angular/cli.
+If we look at the documentation for the `npm exec` command, here’s how it should be used to execute the same `@angular/cli` module:
 
 ```shell
 npx exec -- @angular/cli new App
 ```
 
-Pas énormément de différences. A part le '--'. Nous allons donc l'ajouter à notre tableau.
+Not a huge difference, apart from the `--`. So, we’ll add that to our `argv` array:
 
 ```javascript
 #!/usr/bin/env node
@@ -43,7 +45,7 @@ process.argv.splice(2, 0, "exec");
 process.argv.splice(i, 0, "--");
 ```
 
-Et voilà le tour est joué. Il suffit maintenant de passer cet objet process au script NPM afin qu'il soit exécuté.
+And that’s it. We now just need to pass this modified `process` object to the NPM CLI script so it can be executed:
 
 ```javascript
 #!/usr/bin/env node
@@ -57,6 +59,7 @@ process.argv.splice(i, 0, "--");
 cli(process);
 ```
 
-Vous allez me dire, c'est fini ? En effet, le script fait de la transformation sur les options afin qu'elles correspondent à ce qu'attend NPM. Mais, pour mon cas, dans la vie de tous les jours, les quelques lignes précédentes sont suffisantes.
+You might be thinking: _is that really all?_
+Well, yes. The script also includes some logic to transform the options so they match what NPM expects. But in my day-to-day usage, the few lines above are already sufficient to understand how NPX works internally.
 
-Vous trouverez le code complet de cet outil sur le repository Github de NPM , avec notamment la partie parmettant de faire la "traduction" des options passées à la ligne de commande.
+You can find the complete source code of this tool in the [NPM GitHub repository](https://github.com/npm/cli), which includes the part responsible for “translating” the command-line options.

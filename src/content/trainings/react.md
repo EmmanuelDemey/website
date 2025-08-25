@@ -3,20 +3,20 @@ title: React.js
 image: /images/react2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
-keywords: formation, Javascript, React, Typescript
+keywords: training, Javascript, React, Typescript
 description:
-  Nous ne présentons plus React.js. Solution phare pour faire des applications Web, cette librairie permet de
-  développer rapidement des pages web dynamiques. Grace à sa simplicité de mise en œuvre mais également à son
-  écosystème, l’expérience ressentie lors du développement d’une nouvelle application est fortement appréciée.
+  React.js needs no introduction. As a flagship solution for building web applications,
+  this library makes it possible to quickly develop dynamic web pages. Thanks to its ease of use
+  and its rich ecosystem, the developer experience when creating a new application is highly valued.
 ---
 
-- Présentation et initiation d’un projet React.js
+- Introduction and setting up a React.js project
 - JSX
-- Composants
+- Components
 - Hooks
-- Gestion des formulaires
+- Form management
 - React Router
-- Context et Reducer
-- State Manager
-- Outillage
+- Context and Reducer
+- State management
+- Tooling
 - Next.js

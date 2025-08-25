@@ -4,7 +4,7 @@ const { Content } = await event.render();
 
 const date: Date = event.data.date ?? new Date();
 const datetime = date.toISOString();
-const formattedDate = new Intl.DateTimeFormat("fr").format(date);
+const formattedDate = new Intl.DateTimeFormat("en").format(date);
 ---
 
 <div class="h-event event-entry">
@@ -23,7 +23,7 @@ const formattedDate = new Intl.DateTimeFormat("fr").format(date);
     {
       event.data.spotify && (
         <p class="slides">
-          Ecoutez le podcast sur <a href={event.data.spotify}>Spotify</a>.
+          Listen the podcast on <a href={event.data.spotify}>Spotify</a>.
         </p>
       )
     }

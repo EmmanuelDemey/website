@@ -3,21 +3,21 @@ title: Angular
 image: /images/angular2.svg
 company: Vaduo
 companyUrl: https://www.vaduoconsulting.com/
-keywords: formation, Angular, JavaScript, TypeScript
+keywords: training, Angular, JavaScript, TypeScript
 description:
-  Angular est le framework qui propose une base solide pour le développement d'applications Web. Fort de son
-  langage Typescript et de sa structuration, c’est la solution à favoriser pour des projets assez conséquents,
-  développés par plusieurs développeurs et développeuses.
+  Angular is a framework that provides a solid foundation for developing web applications.
+  Thanks to its use of TypeScript and its structured architecture, it is the preferred solution
+  for large-scale projects developed by multiple developers.
 ---
 
-- Présentation et initiation d’un projet Angular
-- Dynamisation HTML
-- Composants
-- Injection de Dépendances
+- Introduction and setting up an Angular project
+- HTML dynamic rendering
+- Components
+- Dependency Injection
 - Angular Router
 - Signals
-- Gestion des formulaires
+- Form management
 - RxJS
 - Directives
-- Outillage
+- Tooling
 - Angular Universal / AnalogJS

@@ -1,18 +1,18 @@
 ---
 title: "From Scratch - Cypress Axe"
-description: "Voici le premier article d'une série que nous allons nommer “From Scratch”. Le but de ces articles est de prendre un projet open-source, d’en lire le code et essayer d’en expliquer le fonctionnement."
+description: "Here is the first article in a series we will call 'From Scratch'. The purpose of these articles is to take an open-source project, read its code, and try to explain how it works."
 keywords: "cypress, test, from scratch"
 pubDate: "08/22/2022"
 ---
 
-Quel en est l’intérêt ? Tout simplement de comprendre un produit que nous utilisons peut être tous les jours, découvrir certaines manières de développer ou encore apprendre certaines pratiques.
+What’s the point? Simply to better understand a product we might be using every day, discover new development approaches, or learn useful practices.
 
-Comme premier projet open source, nous allons étudier le plugin cypress-axe . Ce plugin permet d'ajouter le support de axe (outil permettant de faire des audits d'accessibilité) dans des tests d'interface graphique conçus avec Cypress .
+As our first open-source project, we’ll study the **cypress-axe** plugin. This plugin adds support for **axe** (a tool used to run accessibility audits) within Cypress end-to-end tests.
 
-Avant de rentrer dans les entrailles de ce plugin, voici tout d'abord, en un coup d'oeil, comment il s'utilise dans un test Cypress assez simple.
+Before diving into the internals of the plugin, let’s first take a quick look at how it is used in a simple Cypress test.
 
 ```javascript
-beforeEach(() = {
+beforeEach(() => {
    cy.visit('http://localhost:9000');
    cy.injectAxe();
    cy.configureAxe({ ... });
@@ -20,80 +20,77 @@ beforeEach(() = {
 })
 ```
 
-Une fois cette introduction terminée, nous allons commencer à regarder le code source. Afin de gérer les éventuelles montées de version de cypress-axe , le code source que nous allons décortiquer correspond à celui-ci
+Now that the introduction is done, let’s start looking at the source code.
+To ensure we’re not tied to future releases of **cypress-axe**, we’ll analyze the current version’s source code.
 
-La première chose que nous allons définir correspond aux trois nouvelles commandes Cypress vues précédemment. Pour cela nous allons utiliser la méthode Cypress **Commands.add** .
+The first thing we need to define are the three new Cypress commands we saw above. For that, we’ll use the **Cypress.Commands.add** method.
 
-````javascript
-const injectAxe = () = { }
-const configureAxe = () = { }
-const injeccheckA11ytAxe = () = { }
+```javascript
+const injectAxe = () => {};
+const configureAxe = () => {};
+const checkA11y = () => {};
 
-Cypress.Commands.add('injectAxe', injectAxe);
+Cypress.Commands.add("injectAxe", injectAxe);
+Cypress.Commands.add("configureAxe", configureAxe);
+Cypress.Commands.add("checkA11y", checkA11y);
+```
 
-Cypress.Commands.add('configureAxe', configureAxe);
+### injectAxe
 
-Cypress.Commands.add('checkA11y', checkA11y);
-
-
-## injectAxe
-
-Comme indiqué précédemment, cette méthode permet d’inclure la librairie Axe dans la page testée. Pour cela, il faut tout d’abord que axe-core soit localement installé.
+As mentioned earlier, this method loads the Axe library into the tested page. For this to work, **axe-core** must be locally installed.
 
 ```shell
 npm install -D axe-core
-````
+```
 
-Le fonctionnement de ce code est assez simple. Nous allons tout d’abord récupérer le contenu de la librairie axe-core , disponible localement dans le répertoire node_modules . Nous allons ensuite l’évaluer, grâce à la méthode JavaScript eval , dans le context de la page testée.
+The logic here is fairly simple:
+We first retrieve the contents of the **axe-core** library (from `node_modules`), then evaluate it with JavaScript’s `eval` inside the context of the tested page.
 
-Pour des raisons de compatibilité avec le compilateur TypeScript, nous devons tout d’abord vérifier que la méthode require.resolve est bien une fonction. Elle nous permettra de récupérer le chemin vers le fichier axe.min.js .
+For TypeScript compatibility, we first check that `require.resolve` is indeed a function. This allows us to retrieve the path to `axe.min.js`.
 
-Nous allons ensuite utiliser deux fonctions du framework Cypress :
+We then use two Cypress functions:
 
-- cy.readFile permet de lire le contenu d’un fichier
-- cy.window permet d’entrer dans le context de la page testée.
+- `cy.readFile` to read a file’s contents
+- `cy.window` to interact with the tested page’s context
 
-Vous trouverez ci-dessous le code complet de cette fonction. La librairie Axe est à présent chargée dans la page que nous sommes en train de tester.
+Here’s the complete implementation:
 
 ```javascript
-export const injectAxe = () = {
-    const fileName =
-        typeof require?.resolve === 'function'
-            ? require.resolve('axe-core/axe.min.js')
-            : 'node_modules/axe-core/axe.min.js';
+export const injectAxe = () => {
+  const fileName =
+    typeof require?.resolve === "function"
+      ? require.resolve("axe-core/axe.min.js")
+      : "node_modules/axe-core/axe.min.js";
 
-        cy.readFile(fileName).then((source) =
-            cy.window({ log: false }).then((window) = {
-            window.eval(source);
-        })
-    );
+  cy.readFile(fileName).then((source) =>
+    cy.window({ log: false }).then((window) => {
+      window.eval(source);
+    }),
+  );
 };
 ```
 
-La plupart des méthodes de Cypress accept une option log , qui permet d’indiquer si l’exécution de cette commande doit s’afficher dans les logs générés par le framework.
+Most Cypress methods accept a `log` option, which controls whether the command’s execution is displayed in the Cypress logs.
 
-##
+### configureAxe
 
-configureAxe
-La deuxième méthode que nous allons aborder est la méthode configureAxe . C’est la plus simple des trois méthodes. Car en effet, elle fait juste office de passe plat vers l’API de configuration de axe.
+The second method, `configureAxe`, is the simplest of the three. It’s just a pass-through to Axe’s `configure` API.
 
-Comme précédemment, nous devons tout d’abord entrer dans le context de la page testée, pour ensuite appeler la méthode configure de l’objet axe précédemment importé (via la méthode injectAxe).
+As before, we enter the page context with `cy.window`, then call `axe.configure`:
 
 ```javascript
-export const configureAxe = (configurationOptions = {}) = {
-    cy.window({ log: false }).then((win) = {
-        return win.axe.configure(configurationOptions);
-    });
+export const configureAxe = (configurationOptions = {}) => {
+  cy.window({ log: false }).then((win) => {
+    return win.axe.configure(configurationOptions);
+  });
 };
 ```
 
-## checkA11y
+### checkA11y
 
-Nous allons à présenter lancer l’audit à proprement parlé. Pour cela, nous allons implémenter la méthode checkA11y .
+Now let’s actually run the accessibility audit by implementing `checkA11y`.
 
-Nous allons tout d’abord définir une interface TypeScript correspondant aux options acceptés par cette méthode. Cette interface correspondra à celle définie par axe axe.RunOptions, en y ajoutant une propriété includedImpacts , correspondant à un tableau de chaines de caractères.
-
-Cette propriété nous permettra ultérieurement de filter les violations détectées.
+First, we define a TypeScript interface for the accepted options. It extends `axe.RunOptions` with a new property, `includedImpacts`, which is an array of strings used to filter violations by severity.
 
 ```javascript
 export interface Options extends axe.RunOptions {
@@ -101,25 +98,25 @@ export interface Options extends axe.RunOptions {
 }
 ```
 
-La méthode checkA11y va accepter 4 paramètres :
+The method accepts 4 parameters:
 
-- context : indique le context de l’analyse (par exemple la partie du DOM testé)
-- options : les paramètres définis par l’interface ci-dessus
-- violationCallback : un fonction qui sera appelée avec les violations détectées
-- skipFailures : permet d’ignorer les erreurs .
+- `context`: the part of the DOM to analyze
+- `options`: audit parameters
+- `violationCallback`: a callback executed with the detected violations
+- `skipFailures`: whether to ignore test failures
 
 ```javascript
 const checkA11y = (
-context?: axe.ElementContext,
-options?: Options,
-violationCallback?: (violations: axe.Result[]) = void,
-skipFailures = false
-) = {
-...
+  context?: axe.ElementContext,
+  options?: Options,
+  violationCallback?: (violations: axe.Result[]) => void,
+  skipFailures = false
+) => {
+  ...
 }
 ```
 
-Dans l’implémentation de cette fonction, nous allons, comme vu précédement, tout d’abord se placer dans le contexte de la page testée. Une fois cela réalisé, nous allons s’assurer que les paramètres sont bien valorisés (et les mettre à undefined si ce n’est pas le cas). Pour cela nous allons utiliser une nouvelle fonction utilitaire isEmptObjectorNull .
+We also need a small helper function to validate that our parameters aren’t empty objects:
 
 ```javascript
 function isEmptyObjectorNull(value: any) {
@@ -130,70 +127,57 @@ function isEmptyObjectorNull(value: any) {
 }
 ```
 
-Une fois cela réalisé, nous allons pouvoir appeler la méthode axe.run permettant d’auditer notre page. Cette méthode retourne une Promise, qui quand elle est résolue, retourne un tableau de violations.
-
-Si nous avons défini le paramètre includedImpacts (et si c’est un tableau), nous allons filtrer les violations retournées. Si nous ne l’avons pas défini, nous allons retourner le tableau complet.
+The core of the function calls `axe.run` and returns the list of violations. If `includedImpacts` is defined, we filter the violations accordingly.
 
 ```javascript
-cy.window({ log: false })
-    .then((win) = {
-        if (isEmptyObjectorNull(context)) {
-            context = undefined;
-        }
-        if (isEmptyObjectorNull(options)) {
-            options = undefined;
-        }
-        if (isEmptyObjectorNull(violationCallback)) {
-            violationCallback = undefined;
-        }
-        const { includedImpacts, ...axeOptions } = options || {};
-        return win.axe
-            .run(context || win.document, axeOptions)
-    .then(({ violations }) = {
-return includedImpacts &&
-Array.isArray(includedImpacts) &&
-Boolean(includedImpacts.length)
-? violations.filter(
-(v) = v.impact && includedImpacts.includes(v.impact)
-)
-: violations;
+cy.window({ log: false }).then((win) => {
+  if (isEmptyObjectorNull(context)) context = undefined;
+  if (isEmptyObjectorNull(options)) options = undefined;
+  if (isEmptyObjectorNull(violationCallback)) violationCallback = undefined;
+
+  const { includedImpacts, ...axeOptions } = options || {};
+
+  return win.axe
+    .run(context || win.document, axeOptions)
+    .then(({ violations }) => {
+      return includedImpacts &&
+        Array.isArray(includedImpacts) &&
+        includedImpacts.length
+        ? violations.filter(
+            (v) => v.impact && includedImpacts.includes(v.impact),
+          )
+        : violations;
+    });
 });
-})
 ```
 
-Une fois ce code exécuté, nous allons récupérer un tableau de violations. Si ce tableau n’est pas vide, nous allons faire plusieurs choses :
+Once we have the violations, we:
 
-Appeler le paramètre violationCallback si il est défini.
-Appeler la méthode Cypress.log pour logger les violations. Une violation sera affichée une et une seule fois, meme si elle a été détectée sur plusieurs noeuds HTML.
+- call the `violationCallback` if defined
+- log each violation with `Cypress.log` (only once per violation, even if multiple nodes are affected)
 
 ```javascript
 if (violations.length) {
-if (violationCallback) {
-violationCallback(violations);
-}
-violations.forEach((v) = {
-const selectors = v.nodes
-.reduce((acc, node) = acc.concat(node.target), [])
-.join(', ');
+  if (violationCallback) violationCallback(violations);
 
-        Cypress.log({
-            $el: Cypress.$(selectors),
-            name: 'a11y error!',
-            consoleProps: () = v,
-            message: `${v.id} on ${v.nodes.length} Node${
-                v.nodes.length === 1 ? '' : 's'
-            }`,
-        });
+  violations.forEach((v) => {
+    const selectors = v.nodes
+      .reduce((acc, node) => acc.concat(node.target), [])
+      .join(", ");
+
+    Cypress.log({
+      $el: Cypress.$(selectors),
+      name: "a11y error!",
+      consoleProps: () => v,
+      message: `${v.id} on ${v.nodes.length} Node${v.nodes.length === 1 ? "" : "s"}`,
     });
-
+  });
 }
 
 return cy.wrap(violations, { log: false });
 ```
 
-La dernière partie de cette fonction est de gérer l’état de nos tests en fonction des violations détectées. Pour cela, si le paramètre skipFailure est falsy, nous allons réaliser une assertion et ainsi vérifier que le nombre de violations est égale à 0.
-
-Si ce n’est pas le cas, nous allons juste appeler la méthode Cypress.log vue précédemment.
+Finally, we determine the test state. If `skipFailures` is false, we assert that there are no violations. Otherwise, we log a summary.
 
 ```javascript
 if (!skipFailures) {
@@ -214,89 +198,81 @@ if (!skipFailures) {
 }
 ```
 
-Voici le code complet de cette dernière méthode de la librairie étudiée dans cet article.
+Here is the complete code for the `checkA11y` function:
 
 ```javascript
 export interface Options extends axe.RunOptions {
-includedImpacts?: string[];
+  includedImpacts?: string[];
 }
 
 const checkA11y = (
-context?: axe.ElementContext,
-options?: Options,
-violationCallback?: (violations: axe.Result[]) = void,
-skipFailures = false
-) = {
-cy.window({ log: false })
-.then((win) = {
-if (isEmptyObjectorNull(context)) {
-context = undefined;
-}
-if (isEmptyObjectorNull(options)) {
-options = undefined;
-}
-if (isEmptyObjectorNull(violationCallback)) {
-violationCallback = undefined;
-}
-const { includedImpacts, ...axeOptions } = options || {};
-return win.axe
-.run(context || win.document, axeOptions)
-.then(({ violations }) = {
-return includedImpacts &&
-Array.isArray(includedImpacts) &&
-Boolean(includedImpacts.length)
-? violations.filter(
-(v) = v.impact && includedImpacts.includes(v.impact)
-)
-: violations;
-});
-})
-.then((violations) = {
-if (violations.length) {
-if (violationCallback) {
-violationCallback(violations);
-}
-violations.forEach((v) = {
-const selectors = v.nodes
-.reduce((acc, node) = acc.concat(node.target), [])
-.join(', ');
+  context?: axe.ElementContext,
+  options?: Options,
+  violationCallback?: (violations: axe.Result[]) => void,
+  skipFailures = false
+) => {
+  cy.window({ log: false })
+    .then((win) => {
+      if (isEmptyObjectorNull(context)) context = undefined;
+      if (isEmptyObjectorNull(options)) options = undefined;
+      if (isEmptyObjectorNull(violationCallback)) violationCallback = undefined;
 
-                    Cypress.log({
-                        $el: Cypress.$(selectors),
-                        name: 'a11y error!',
-                        consoleProps: () = v,
-                        message: `${v.id} on ${v.nodes.length} Node${
-                            v.nodes.length === 1 ? '' : 's'
-                        }`,
-                    });
-                });
-            }
+      const { includedImpacts, ...axeOptions } = options || {};
 
-            return cy.wrap(violations, { log: false });
-        })
-        .then((violations) = {
-            if (!skipFailures) {
-                assert.equal(
-                    violations.length,
-                    0,
-                    `${violations.length} accessibility violation${
-                        violations.length === 1 ? '' : 's'
-                    } ${violations.length === 1 ? 'was' : 'were'} detected`
-                );
-            } else if (violations.length) {
-                Cypress.log({
-                    name: 'a11y violation summary',
-                    message: `${violations.length} accessibility violation${
-                        violations.length === 1 ? '' : 's'
-                    } ${violations.length === 1 ? 'was' : 'were'} detected`,
-                });
-            }
+      return win.axe
+        .run(context || win.document, axeOptions)
+        .then(({ violations }) => {
+          return includedImpacts && Array.isArray(includedImpacts) && includedImpacts.length
+            ? violations.filter((v) => v.impact && includedImpacts.includes(v.impact))
+            : violations;
         });
+    })
+    .then((violations) => {
+      if (violations.length) {
+        if (violationCallback) violationCallback(violations);
 
+        violations.forEach((v) => {
+          const selectors = v.nodes
+            .reduce((acc, node) => acc.concat(node.target), [])
+            .join(', ');
+
+          Cypress.log({
+            $el: Cypress.$(selectors),
+            name: 'a11y error!',
+            consoleProps: () => v,
+            message: `${v.id} on ${v.nodes.length} Node${
+              v.nodes.length === 1 ? '' : 's'
+            }`,
+          });
+        });
+      }
+
+      return cy.wrap(violations, { log: false });
+    })
+    .then((violations) => {
+      if (!skipFailures) {
+        assert.equal(
+          violations.length,
+          0,
+          `${violations.length} accessibility violation${
+            violations.length === 1 ? '' : 's'
+          } ${violations.length === 1 ? 'was' : 'were'} detected`
+        );
+      } else if (violations.length) {
+        Cypress.log({
+          name: 'a11y violation summary',
+          message: `${violations.length} accessibility violation${
+            violations.length === 1 ? '' : 's'
+          } ${violations.length === 1 ? 'was' : 'were'} detected`,
+        });
+      }
+    });
 };
 ```
 
-Et voilà, la librairie est terminée. Assez simple comme premier article non ? En conclusion, voici les méthodes Cypress que nous avons découvert lors de cet article
+And that’s it — the library is complete. Pretty simple for a first “From Scratch” article, right?
+
+In conclusion, here are the Cypress methods we discovered in this article:
 
 ```javascript
 cy.readFile;
@@ -306,4 +282,4 @@ cy.wrap;
 Cypress.$;
 ```
 
-J’espère que vous avez trouvé cet article intéressant. Ke vous donne donc rendez-vous pour le prochain. Je vous invite à me donner des idées de librairies à décortiquer dans ces articles. Pour cela, n’hésitez pas à me contacter sur Twitter.
+I hope you found this article interesting. Stay tuned for the next one, and feel free to suggest libraries you’d like me to explore in this series. You can reach out to me on Twitter.

@@ -1,22 +1,14 @@
 ---
-title: Démarche d’EcoConception chez Axa
+title: Eco-Design Approach at Axa
 type: Conférence
 date: 02/02/2023
 image: https://secure.meetupstatic.com/photos/event/4/b/5/7/clean_492619287.jpeg
 ---
 
-Faire des vérifications dans un système d'intégration continue ne veut
-pas dire que nous n'avons rien à améliorer sur notre produit. Mais au
-moins, ce qui est détectable par la machine, peut être rapidement
-corrigé et nous pouvons nous concentrer sur d'autres problématiques.
+Running checks in a continuous integration system doesn’t mean there’s nothing left to improve in our product. But at least, what can be detected by the machine can be quickly fixed, allowing us to focus on other issues.
 
-Chez Axa, nous avons initié il y a quelques mois une démarche
-permettant de s'assurer de la non régression de certaines métriques
-liées au numérique responsable (Accessibilité et GreenIT).
+At Axa, a few months ago, we launched an initiative to ensure no regression on certain sustainable digital metrics (Accessibility and Green IT).
 
-A travers ce talk, nous vous présenterons notre démarche complète :
-nos débuts dans l'analyse de nos applications jusqu'à notre solution,
-nos outils mais également les briques dont nous dépendons (Lighthouse,
-Puppeteer, EcoIndex, ...) . Nous envisageons une mise en open source
-de notre solution afin que celle-ci soit utilisée pour vos propres
-projets.
+In this talk, we will present our complete approach: from our first steps in analyzing our applications to our current solution, the tools we use, and the components we rely on (Lighthouse, Puppeteer, EcoIndex, …).
+
+We are also considering open-sourcing our solution so that it can be used in your own projects.

@@ -5,6 +5,5 @@ date: 05/25/2021
 image: https://pbs.twimg.com/profile_images/1369565728681168896/-IUwYZgB_400x400.png
 ---
 
-Podcast d'une heure autour des nouveautés de l'écosystème Web. J'ai
-présenté la rubrique "L'outil de la semaine" autour du projet
-_Eleventy_.
+One-hour podcast about the latest updates in the Web ecosystem.
+I presented the segment “Tool of the Week” featuring the _Eleventy project_.

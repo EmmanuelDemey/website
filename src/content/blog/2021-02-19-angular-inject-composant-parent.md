@@ -1,26 +1,26 @@
 ---
-title: "Communication entre composants"
-description: "Angular propose de multiples syntaxes pour partager de l'informations entre des composants.Mais connaissez-vous celle-ci ?"
+title: "A Lesser-Known Way to Share Data Between Angular Components"
+description: "Angular offers multiple syntaxes to share information between components. But do you know this one?"
 keywords: "angular, inject"
 pubDate: "03/24/2021"
 ---
 
-Nous avons l'habitude d'utiliser l'injection de dépendances avec Angular afin de pouvoir notamment partager de l'information. Mais saviez-vous qu'il était également possible de récupérer directement le composant parent directement dans la classe TypeScript d'un autre composant ?
+We are used to using dependency injection with Angular in order to share information. But did you know that it is also possible to directly retrieve the parent component inside the TypeScript class of another component?
 
-## Cas d'utilisation
+### Use Case
 
-Lorsque nous devons faire transiter de l'informations entre deux composants indirects, nous pensons immédiatement à deux solutions :
+When we need to transfer information between two **indirect components**, we immediately think of two solutions:
 
-- Mettre en place un service
-- Installer et configurer l'artillerie lourde comme par exemple NgRX
+- Setting up a service
+- Installing and configuring heavy artillery such as NgRX
 
-Je n'ai absolument rien contre ces deux solutions, mais pour certains cas, cela n'est pas nécessaire. Si deux composants sont par exemple toujours utilisés ensemble, pour une même fonctionnalité (le découpage en composants a été réalisé juste pour faciliter la lecture et la maintenabilité de notre code), nous pouvons, à tout moment, injecter depuis un composant enfant une instance de l'un de ces composants parent (direct ou indirect).
+I have absolutely nothing against these two solutions, but for some cases, this is not necessary. If two components are, for example, always used together for the same feature (the component split was only made to improve readability and maintainability of our code), we can, at any time, inject from a child component an instance of one of its parent components (direct or indirect).
 
-## Mise en place
+### Implementation
 
-Pour cela, nous allons utiliser la même syntaxe que pour l'injection de service : en définissant un nouveau paramètre dans le constructeur du composant. Si vous êtes familier avec le fonctionnement d'Angular, vous savez déjà qu'Angular se base sur le type du paramètre afin de déterminer quel objet doit être injecté. Dans la cas présenté dans cet article, le type sera tout simplement celui du ou des composants à injecter.
+To achieve this, we will use the same syntax as for service injection: by defining a new parameter in the component’s constructor. If you are familiar with Angular’s mechanics, you already know that Angular relies on the parameter’s type to determine which object should be injected. In the case presented in this article, the type will simply be the one of the component(s) we want to inject.
 
-Si nous avons par exemple un composant TabComponent dans lequel nous souhaitons injecter le composant parent TabsComponent , il suffit d'écrire le code suivant :
+For example, if we have a `TabComponent` in which we want to inject the parent `TabsComponent`, we just need to write the following code:
 
 ```typescript
 @Component({ ...}}
@@ -29,7 +29,8 @@ export class TabComponent {
 }
 ```
 
-Une fois cette injection réalisée, nous pouvons utiliser les méthodes et variables de l'instance du composant TabsComponent . Cette pratique est notamment utilisée dans le composant Accordion de la librairie ng-bootstrap . En effet, dans la directive NgPanelToggle (en charge d'ouvrir et de fermer le contenu affiché), le composant Accordion lui-même est injecté afin de pouvoir appeler sa méthode toggle quand l'utilisateur clique sur le bouton.
+Once this injection is done, we can use the methods and variables of the `TabsComponent` instance.
+This practice is notably used in the `Accordion` component of the **ng-bootstrap** library. In fact, in the `NgPanelToggle` directive (responsible for opening and closing the displayed content), the `Accordion` component itself is injected so that its `toggle` method can be called when the user clicks the button.
 
 ```typescript
 @Directive({
@@ -60,4 +61,4 @@ export class NgbPanelToggle {
 }
 ```
 
-Ceci est mon premier article sur Angular (en fait le tout premier article de ce blog). D'autres articles sont prévus. Donc n'hésitez pas à revenir les lire.
+This is my very first article on Angular (actually the very first article of this blog). More articles are planned, so feel free to come back and read them.

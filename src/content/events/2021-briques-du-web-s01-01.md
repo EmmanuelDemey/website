@@ -6,5 +6,5 @@ image: https://pbs.twimg.com/profile_images/1369565728681168896/-IUwYZgB_400x400
 youtube: czAx81Upp_U
 ---
 
-Podcast d'une heure autour des nouveautés de l'écosystème Web.
-Durant cet épisode, j'ai présenté l'outil de la semaine : **Snowpack**
+One-hour podcast about the latest updates in the Web ecosystem.
+In this episode, I presented the tool of the week: **Snowpack**

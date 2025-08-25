@@ -1,21 +1,17 @@
 ---
-title: Accessibilité Numérique
+title: Digital Accessibility
 image: /images/accessibility2.svg
 company: IT's on us
 companyUrl: https://www.itsonus.fr/
 keywords: formation, accessibilité, a11y
-description:
-  Dans cette formation Accessibilité Numérique, nous aborderons tous les tenants et aboutissants de cette
-  approche, afin de connaître tous les automatismes nécessaires pour développer une application Web accessible. Le plan
-  ci-dessous peut être déclinée également en une journée de sensibilisation pour un public non-développeur (seuls les 4 premiers
-  points seront abordés).
+description: In this Digital Accessibility training, we will cover all aspects of this approach to master the essential practices needed to develop an accessible web application. The outline below can also be adapted into a one-day awareness workshop for a non-developer audience (only the first four points will be covered).
 ---
 
 - Introduction
-- Obligations Légales
-- Référentiels (RGAA, WCAG)
-- Les différentes façons de naviguer sur Internet
-- Web Sémantique
-- Erreurs les plus courantes
+- Legal Obligations
+- Standards and Guidelines (RGAA, WCAG)
+- Different Ways of Navigating the Web
+- Semantic Web
+- Most Common Mistakes
 - ARIA
-- Comment réaliser un audit
+- How to Conduct an Audit

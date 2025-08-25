@@ -3,12 +3,12 @@ title: Vite
 image: /images/vuejs2.svg
 company: Human Coders
 companyUrl: https://www.humancoders.com/formations/vite
-keywords: formation, TypeScript, JavaScript, Vite
-description: Boostez votre développement front-end avec Vite et réduisez vos temps de build ! Apprenez à créer des apps optimisées grâce à Vite.
+keywords: training, TypeScript, JavaScript, Vite
+description: Boost your front-end development with Vite and reduce your build times! Learn how to create optimized apps with Vite.
 ---
 
-- Introduction à Vite
-- Mise en place d’un projet avec Vite
-- Fonctionnalités principales de Vite
-- Vite et les frameworks
-- Optimisation et mise en production
+- Introduction to Vite
+- Setting up a project with Vite
+- Core features of Vite
+- Vite and frameworks
+- Optimization and production deployment

@@ -9,19 +9,18 @@ const trainings = collection.sort((c1, c2) =>
 ---
 
 <Layout
-  title="Mes Formations"
-  keywords="formations, angular, vue, elasticsearch, training"
-  description="Liste des formations que Emmanuel Demey dispense: Angular, Vue.js, Elastisearch, ..."
+  title="My Trainings"
+  keywords="trainings, angular, vue, elasticsearch, courses"
+  description="List of trainings delivered by Emmanuel Demey: Angular, Vue.js, Elasticsearch, ..."
 >
-  <h2>Formations</h2>
+  <h2>Trainings</h2>
 
   <div class="page-intro">
     <p>
-      Depuis plus de dix ans, et à travers mes différentes expériences
-      professionnelles, j'ai eu la chance de créer, maintenir et donner de
-      nombreuses formations. Vous trouverez sur cette page, la liste des
-      formations que je propose en tant qu'indépendant. Je vous invite à me
-      contacter par email si vous êtes intéressé.
+      For more than ten years, throughout my various professional experiences,
+      I’ve had the opportunity to create, maintain, and deliver numerous
+      trainings. On this page, you will find the list of courses I offer as a
+      freelancer. Feel free to contact me by email if you are interested.
     </p>
   </div>
 
@@ -42,7 +41,7 @@ const trainings = collection.sort((c1, c2) =>
             <div class="content">
               <Content />
               <p>
-                Cette formation est proposée en partenariat avec la société{" "}
+                This training is offered in partnership with{" "}
                 <a href={training.data.companyUrl} target="_blank">
                   {training.data.company}
                 </a>

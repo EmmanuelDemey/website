@@ -9,27 +9,27 @@ const events = collection
   .sort((c1, c2) => c2.data.date.getTime() - c1.data.date.getTime())
   .filter((event) => !event.data.fullPage);
 
-const podcats = collection
+const podcasts = collection
   .filter((event) => event.data.type === "Podcast")
   .sort((c1, c2) => c2.data.date.getTime() - c1.data.date.getTime());
 ---
 
 <Layout
-  title="Mes Evénements"
-  description="Evenements auxquels Emmanuel Demey a participé"
-  keywords="Conférence, podcast, partage, tech"
+  title="My Events"
+  description="Events Emmanuel Demey has participated in"
+  keywords="Conference, podcast, sharing, tech"
 >
   <script src="//lite-yt-embed.js" is:inline></script>
-  <h2>Événements</h2>
+  <h2>Events</h2>
   <div class="list-of-events">
-    <h3>Conférences</h3>
+    <h3>Conferences</h3>
 
     {events.map(async (event) => <EventBlock event={event} />)}
 
     <div class="list-of-events">
       <h3>Podcasts</h3>
 
-      {podcats.map(async (event) => <EventBlock event={event} />)}
+      {podcasts.map(async (event) => <EventBlock event={event} />)}
     </div>
   </div>
 </Layout>

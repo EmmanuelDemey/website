@@ -6,6 +6,5 @@ image: https://pbs.twimg.com/profile_images/1369565728681168896/-IUwYZgB_400x400
 youtube: XAPbLbia7NE
 ---
 
-Podcast d'une heure autour des nouveautés de l'écosystème Web. J'ai
-présenté la rubrique "La Météo du Web" ainsi qu'une interview sur le
-GreenIT et le numérique responsable.
+One-hour podcast about the latest updates in the Web ecosystem.
+I presented the segment “The Web Weather” as well as an interview on Green IT and sustainable digital practices.

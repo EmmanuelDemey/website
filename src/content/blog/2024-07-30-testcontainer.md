@@ -1,26 +1,33 @@
 ---
-title: "Utilisation de TestContainer pour vérifier le comportement de requêtes SparQL"
-description: "Comment vérifier le bon fonctionnement de requêtes SparQL avec TestContainer ?"
-keywords: "testcontainer, docker, test"
+title: "Using Testcontainers to Verify SPARQL Query Behavior"
+description: "How can we ensure SPARQL queries work correctly with Testcontainers?"
+keywords: "testcontainers, docker, test"
 pubDate: "07/30/2024"
 ---
 
-Pour l'un de mes clients, j'ai été chargé de développer une application en React.js. En parallèle, je travaille également sur une partie de l'API en utilisant Spring Boot. Cette API interagit avec une base de données GraphDB, permettant ainsi une gestion efficace des données structurées et interconnectées. Pour effectuer des requêtes sur cette base de données, nous utilisons le langage SPARQL, qui est spécifiquement conçu pour interroger les graphes de données.
+For one of my clients, I was tasked with developing a React.js application. At the same time, I also worked on part of the API using Spring Boot. This API interacts with a **GraphDB** database, allowing efficient management of structured and interconnected data. To query this database, we use the **SPARQL** language, specifically designed for querying graphs of data.
 
-Récemment, nous avons ressenti le besoin de garantir l'absence de régressions dans nos requêtes SPARQL, car cette partie de l'application était la seule à ne pas être correctement testée. Nous voulions nous assurer que, pour un ensemble de données donné, une requête de notre application renverrait les résultats attendus. Pour cela, il était nécessaire de pouvoir déployer une base de données GraphDB pour nos tests, à la fois en local et sur notre infrastructure d'intégration continue (CI). C'est à ce moment-là que Testcontainers, un outil que j'avais en tête depuis un certain temps, est devenu indispensable.
+Recently, we felt the need to guarantee the absence of regressions in our SPARQL queries, as this part of the application was the only one not properly tested. We wanted to ensure that, for a given dataset, a query from our application would return the expected results. To achieve this, we needed to deploy a **GraphDB instance** for our tests, both locally and in our CI environment. That’s when **Testcontainers**, a tool I had been considering for a while, became essential.
 
-Testcontainers est une solution open-source qui permet de démarrer des images Docker de manière programmatique. Il propose par défaut plusieurs intégrations pour des outils open-source couramment utilisés, comme Redis, Elasticsearch, et MySQL. Cependant, aucune intégration spécifique pour GraphDB n'était disponible. Heureusement, cela ne pose pas de problème majeur, car avec Testcontainers, nous pouvons en réalité lancer n'importe quelle image Docker.
+**Testcontainers** is an open-source solution that allows us to start Docker images programmatically. It comes with built-in integrations for popular tools like Redis, Elasticsearch, and MySQL. However, no specific integration existed for GraphDB. Fortunately, that’s not a major issue, since Testcontainers can run any Docker image.
 
-Dans cet article, je vais détailler la mise en place de cette solution, et vous verrez que c'est assez simple, même pour quelqu'un comme moi qui n'est pas un développeur Java. Je vais vous guider à travers chaque étape pour vous montrer comment utiliser Testcontainers pour déployer une instance de GraphDB et garantir ainsi la stabilité de vos requêtes SPARQL.
+In this article, I’ll detail how to set up this solution. You’ll see it’s quite simple — even for someone like me who is not primarily a Java developer. I’ll guide you step by step on how to use Testcontainers to deploy a GraphDB instance and guarantee the stability of your SPARQL queries.
 
-Nous allons tout d’abord ajouter deux librairies :
+### Adding the required libraries
 
-- `org.testcontainers:testcontainers`: la librairie principale
-- `org.testcontainers:junit-jupiter` : une librairie permettant de simplifier l’utilisation de TestContainer dans des tests jUnit.
+We start by adding two libraries:
 
-Nous allons ensuite créer notre propre implémentation de GenericContainer pour GraphDB afin de le rendre réutilisable dans tous nos tests. Cette classe nous permettra, par exemple, d'exécuter des scripts à l'intérieur du conteneur créé. Cela sera particulièrement utile pour initialiser le dépôt GraphDB (l'endroit où les données sont stockées) et éventuellement y enregistrer les données nécessaires pour les tests. Vous pouvez créer autant de méthodes utilitaires que vous le souhaitez, en fonction de l'expérience développeur que vous désirez offrir avec votre intégration. Comme GraphDB est une base de données accessible via une API, il suffit d'envoyer des requêtes HTTP à l'intérieur du conteneur pour interagir avec elle.
+- `org.testcontainers:testcontainers`: the main Testcontainers library
+- `org.testcontainers:junit-jupiter`: provides convenient JUnit 5 integration
 
-Ci-dessus, la méthode withRepository sera utilisé pour initialiser le dépôt dans lequel les données seront stockées. Et la méthode withTrigFile permettra d’uploader des fichiers TRIG nous permettant d’initialiser un jeu de donnée.
+### Creating a custom GraphDB container
+
+We then create our own implementation of `GenericContainer` for GraphDB, making it reusable in all our tests. This class will also allow us to run scripts inside the container — useful for initializing the GraphDB repository and uploading any test data.
+
+For example:
+
+- `withRepository` initializes the repository where data will be stored.
+- `withTrigFiles` uploads TRIG files to initialize a dataset.
 
 ```java
 package fr.insee.rmes.testcontainers.queries;
@@ -34,8 +41,8 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GraphDBContainer extends GenericContainer {
-public static final String DOCKER_ENTRYPOINT_INITDB = "/docker-entrypoint-initdb";
-private String folder;
+    public static final String DOCKER_ENTRYPOINT_INITDB = "/docker-entrypoint-initdb";
+    private String folder;
 
     public GraphDBContainer(final String dockerImageName) {
         super(dockerImageName);
@@ -86,15 +93,18 @@ private String folder;
         String stdout = lsResult.getStdout();
         assertThat(stdout).contains(file).withFailMessage("Expecting file %1$s to be in folder %2$s of container", file, DOCKER_ENTRYPOINT_INITDB);
     }
-
 }
 ```
 
-Nous pouvons désormais utiliser notre classe GraphDBContainer. Toutefois, avant de l'intégrer pleinement, il est essentiel de synchroniser l'URL et le port de notre conteneur avec la configuration de l'application Spring Boot. Si cette étape n'est pas réalisée correctement, notre service FriendsService risque de se connecter à la mauvaise base de données, ce qui pourrait entraîner des erreurs dans les tests et le fonctionnement de l'application. Pour synchroniser l'URL et le port de notre conteneur avec la configuration de l'application Spring Boot, nous utilisons les DynamicPropertySource de Spring Boot.
+### Integrating with Spring Boot
 
-Les annotations @Testcontainers et @Container sont des outils pratiques qui simplifient l'utilisation de Testcontainers dans JUnit. Elles automatisent le démarrage et l'arrêt des conteneurs, ce qui facilite la gestion des environnements de test.
+We can now use our custom `GraphDBContainer`. But before fully integrating it, we must synchronize the container’s **URL and port** with Spring Boot’s configuration.
 
-Une fois cette étape accomplie, nous pouvons charger un fichier TRIG en utilisant la méthode withTrigFile que nous avons implémentée précédemment, et exécuter enfin notre test.
+If not properly configured, our `FriendsService` might connect to the wrong database, causing errors. To synchronize, we use **Spring Boot’s `DynamicPropertySource`**.
+
+The annotations `@Testcontainers` and `@Container` simplify container lifecycle management: they automatically start and stop containers during JUnit tests.
+
+Once this is in place, we can load a TRIG file using our `withTrigFiles` method and finally execute our tests.
 
 ```java
 package dev.emmanueldemey.TestContainerTest;
@@ -110,32 +120,32 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 
-import static org.junit.jupiter.api.Assertions.\*;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-@TestContainers
+@Testcontainers
 public class TestContainerTest {
-@Autowired
-FriendsService friendsService;
+    @Autowired
+    FriendsService friendsService;
 
     @Container
     public static GraphDBContainer container = new GraphDBContainer("ontotext/graphdb:10.6.4");
 
-
     @DynamicPropertySource
     static void configureProperties(DynamicPropertyRegistry registry) {
         String server = "http://" + container.getHost() + ":" + container.getMappedPort(7200);
-        registry.add("fr.insee.rmes.bauhaus.sesame.gestion.sesameServer", () - server);
-        registry.add("fr.insee.rmes.bauhaus.sesame.gestion.repository", () - "repository");
+        registry.add("fr.insee.rmes.bauhaus.sesame.gestion.sesameServer", () -> server);
+        registry.add("fr.insee.rmes.bauhaus.sesame.gestion.repository", () -> "repository");
     }
 
     @Test
     void should_test_something() {
-      container.withTrigFiles("sample-data.trig");
-      assertEquals(10, friendsService.getFriends().length());
+        container.withTrigFiles("sample-data.trig");
+        assertEquals(10, friendsService.getFriends().length());
     }
-
 }
 ```
 
-La prochaine étape consiste à ajouter des tests pour vérifier l'intégration correcte de Minio et Keycloak dans notre projet. Ces tests garantiront que ces composants sont bien configurés et fonctionnent comme prévu, assurant ainsi la robustesse et la sécurité de notre application.
+### Next steps
+
+The next step is to add tests for integrating **Minio** and **Keycloak** into our project. These tests will ensure that these components are correctly configured and functioning as expected, guaranteeing both the robustness and the security of our application.
