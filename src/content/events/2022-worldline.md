@@ -1,6 +1,6 @@
 ---
 title: Web Accessibility, or How to Build Inclusive Web Applications
-type: Conférence
+type: Talk
 date: 09/13/2022
 image: https://www.freelogovectors.net/wp-content/uploads/2022/04/wordline_logo_freelogovectors.net_.png
 ---

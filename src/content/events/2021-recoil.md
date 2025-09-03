@@ -1,6 +1,6 @@
 ---
 title: Recoil, a Next-Generation State Management
-type: Conférence
+type: Talk
 date: 03/25/2021
 image: https://secure.meetupstatic.com/photos/event/6/b/4/8/highres_495087464.jpeg
 youtube: hfcm8pUrzp4

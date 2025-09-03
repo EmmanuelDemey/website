@@ -1,6 +1,6 @@
 ---
 title: The environmental impact of web apps Truth or Dare?
-type: Conférence
+type: Talk
 date: 11/30/2024
 image: https://img.evbuc.com/https%3A%2F%2Fcdn.evbuc.com%2Fimages%2F850608529%2F242299030089%2F1%2Foriginal.20240915-143049?w=940&auto=format%2Ccompress&q=75&sharp=10&rect=1206%2C0%2C2124%2C1062&s=ae81f926941705afad84ddc5de1be6b1
 ---

@@ -1,6 +1,6 @@
 ---
 title: Why and How to Migrate to Astro in 2025?
-type: Conférence
+type: Talk
 date: 03/06/2025
 image: https://secure.meetupstatic.com/photos/event/6/0/6/e/600_526224686.webp?w=384
 ---

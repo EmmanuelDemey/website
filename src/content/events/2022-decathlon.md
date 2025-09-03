@@ -1,6 +1,6 @@
 ---
 title: Eco-design of Digital Services
-type: Conférence
+type: Talk
 date: 09/23/2022
 image: https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flogosmarcas.net%2Fwp-content%2Fuploads%2F2020%2F12%2FDecathlon-Logo.png&f=1&nofb=1
 ---

@@ -1,6 +1,6 @@
 ---
 title: Web Accessibility, or How to Build Inclusive Web Applications
-type: Conférence
+type: Talk
 date: 07/18/2024
 image: https://www.eanocookie.com/image/eap/eaimages/brands/boulanger.png
 ---

@@ -1,6 +1,6 @@
 ---
 title: Presentation and Live Coding with Testcontainers
-type: Conférence
+type: Talk
 date: 01/16/2025
 image: https://secure.meetupstatic.com/photos/event/3/1/0/600_525180784.webp?w=384
 ---

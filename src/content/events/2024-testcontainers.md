@@ -1,6 +1,6 @@
 ---
 title: Presentation and Live Coding with Testcontainers
-type: Conférence
+type: Talk
 date: 11/21/2024
 image: https://www.vaduoconsulting.com/images/logo_vaduo_large.svg
 ---

@@ -1,6 +1,6 @@
 ---
 title: Eco-design of Digital Services
-type: Conférence
+type: Talk
 date: 09/08/2022
 image: https://fdelbrayelle.github.io/images/ippon_new_logo.png
 ---

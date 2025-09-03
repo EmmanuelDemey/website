@@ -1,6 +1,6 @@
 ---
 title: Eco-Design Approach at Axa
-type: Conférence
+type: Talk
 date: 02/02/2023
 image: https://secure.meetupstatic.com/photos/event/4/b/5/7/clean_492619287.jpeg
 ---

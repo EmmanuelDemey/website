@@ -1,6 +1,6 @@
 ---
 title: Awareness of Green IT
-type: Conférence
+type: Talk
 date: 09/22/2023
 image: public/img/cleverconnect.webp
 ---

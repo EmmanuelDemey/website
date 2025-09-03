@@ -1,6 +1,6 @@
 ---
 title: Web Accessibility, or How to Build Inclusive Web Applications
-type: Conférence
+type: Talk
 date: 09/07/2023
 image: https://pbs.twimg.com/profile_images/3565788553/79ed17e02ee909628ea2ea4b393f8c1a_400x400.png
 ---

@@ -1,6 +1,6 @@
 ---
 title: Awareness of Green IT
-type: Conférence
+type: Talk
 date: 10/06/2023
 image: https://uploads-ssl.webflow.com/63f5d5311c184d3d8442bf41/63f5d98cba3b8ab5fadf5583_Acobi-logo-white.svg
 ---

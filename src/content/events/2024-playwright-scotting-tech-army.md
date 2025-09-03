@@ -1,6 +1,6 @@
 ---
 title: STA Lunch & Learn - Mastering Playwright
-type: Conférence
+type: Talk
 date: 10/22/2024
 image: https://images.squarespace-cdn.com/content/v1/5e98651eeb6c5049f0d0cad4/1587375053728-HH7PUTT23XUHJVNJGHRL/Long+Format.png?format=1500w
 ---

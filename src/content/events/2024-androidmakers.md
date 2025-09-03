@@ -1,6 +1,6 @@
 ---
 title: The environmental impact of mobile apps Truth or Dare?
-type: Conférence
+type: Talk
 date: 04/25/2024
 image: https://androidmakers.droidcon.com/wp-content/uploads/sites/5/2022/03/dc-am-paris-23-logo-1.svg
 youtube: CaDgIxq5q2A
