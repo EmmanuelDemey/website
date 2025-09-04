@@ -16,6 +16,7 @@ description:
 - Mapping and Analyzers
 - Queries
 - Aggregations
+- ES|QL
 - Ingest Pipelines
 - Using Elasticsearch in a Java or Node.js application
 - Interaction between Elasticsearch and Testcontainers
