@@ -8,9 +8,16 @@ interface Props {
   description: string;
   keywords: string;
   image?: string;
+  canonical?: string;
 }
 
-const { title, description, keywords, image = "./index-og.png" } = Astro.props;
+const {
+  title,
+  description,
+  keywords,
+  image = "./index-og.png",
+  canonical,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -38,6 +45,7 @@ const { title, description, keywords, image = "./index-og.png" } = Astro.props;
     <link rel="shortcut icon" href="/img/favicon.png" />
     <title>{title}</title>
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {canonical && <link rel="canonical" href={canonical} />}
     <!-- STYLESHEET -->
 
     <script

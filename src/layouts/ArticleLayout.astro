@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Layout from "../layouts/MainLayout.astro";
+import ArticleJsonLd from "../components/ArticleJsonLd.astro";
 
 interface Props {
   article: CollectionEntry<"blog">;
@@ -12,13 +13,17 @@ const { Content } = await article.render();
 const publicationDate = article.data.pubDate ?? new Date();
 const date = new Intl.DateTimeFormat("fr").format(publicationDate);
 const dateTime = publicationDate.toISOString();
+const articleUrl = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <Layout
   title={article.data.title}
   keywords={article.data.keywords}
   description={article.data.description}
+  canonical={article.data.canonical}
 >
+  <ArticleJsonLd article={article} url={articleUrl} />
+
   <article class="h-entry">
     <header aria-label="Données de l'article">
       <h2 class="p-name">{article.data.title}</h2>
