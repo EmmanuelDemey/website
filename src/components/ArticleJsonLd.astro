@@ -12,7 +12,34 @@ const { article, url } = Astro.props;
 const publicationDate = article.data.pubDate ?? new Date();
 const isoDate = publicationDate.toISOString();
 
-const jsonLd = {
+interface BlogPostingJsonLd {
+  "@context": string;
+  "@type": string;
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  author: {
+    "@type": string;
+    name: string;
+    url: string;
+  };
+  publisher: {
+    "@type": string;
+    name: string;
+    url: string;
+  };
+  url: string;
+  mainEntityOfPage: {
+    "@type": string;
+    "@id": string;
+  };
+  keywords: string[] | string;
+  inLanguage: string;
+  isBasedOn?: string;
+}
+
+const jsonLd: BlogPostingJsonLd = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   headline: article.data.title,
